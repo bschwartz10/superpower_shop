@@ -1,0 +1,8 @@
+<% @categories.each do |category| %>
+  <% category.powers.each do |power| %>
+    <h1><%= power.title %></h1>
+    <div class="power image">
+      <iframe width='640' height='390' src="<%= power.image_url %>" frameborder="0"></iframe><br/>
+    </div>
+  <% end %>
+<% end %>
