@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   helper_method :current_user
-  
   before_action :set_briefcase
   
   def set_briefcase

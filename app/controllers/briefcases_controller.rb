@@ -13,8 +13,10 @@ class BriefcasesController < ApplicationController
     redirect_to powers_path
   end
   
-  def index
-    
+  def show
+    @powers = @briefcase.contents.map do |power_id, quantity|
+      Power.find(power_id)
+    end
   end
   
 end

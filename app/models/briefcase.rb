@@ -5,6 +5,14 @@ class Briefcase
     @contents = initial_contents || {}
   end
   
+  def total_cost
+    total = 0
+    contents.each do |power_id, quantity|
+      total += Power.find(power_id).price
+    end
+    total
+  end
+  
   def total_count
     contents.values.sum
   end
