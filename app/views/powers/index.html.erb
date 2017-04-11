@@ -2,5 +2,6 @@
   <h1><%= power.title %></h1>
   <div class="power image">
     <img src="<%= power.image_url %>" width="50" height="50"/>
+    <%= button_to "Add to Briefcase", briefcases_path %>
   </div>
 <% end %>
