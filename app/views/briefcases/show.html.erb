@@ -12,5 +12,6 @@
   <div class="power quantity">
     Quantity: <%= @briefcase.contents[power.id.to_s] %>
   </div>
+  <%= link_to 'Remove', power_path(power), method: :delete %>
 <% end %>
 Total: <%= @briefcase.total_cost %>
