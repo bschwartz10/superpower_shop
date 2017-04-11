@@ -8,7 +8,7 @@ class Briefcase
   def total_cost
     total = 0
     contents.each do |power_id, quantity|
-      total += Power.find(power_id).price
+      total += (Power.find(power_id).price) * quantity
     end
     total
   end

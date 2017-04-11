@@ -9,5 +9,8 @@
   <div class="power price">
     Price: <%= power.price %>
   </div>
+  <div class="power quantity">
+    Quantity: <%= @briefcase.contents[power.id.to_s] %>
+  </div>
 <% end %>
 Total: <%= @briefcase.total_cost %>
