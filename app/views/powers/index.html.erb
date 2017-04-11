@@ -2,6 +2,8 @@
   <h1><%= power.title %></h1>
   <div class="power image">
     <img src="<%= power.image_url %>" width="50" height="50"/>
-    <%= button_to "Add to Briefcase", briefcases_path %>
+    <%= button_to "Add to Briefcase", briefcases_path(power_id: power.id) %>
   </div>
 <% end %>
+<%= link_to "View Briefcase", briefcases_path, method: :get %>
+
