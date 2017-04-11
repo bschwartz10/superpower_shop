@@ -22,17 +22,17 @@ RSpec.feature "When a user visits the items index page" do
       expect(page).to have_content("You now have 2 flyings")
     end
     
-    # it "and they click to view cart" do
-    #   visit powers_path
-    #   click_on "View Briefcase"
-    # 
-    #   expect(current_path).to eq("/briefcases")
-    #   expect(page).to have_content("flying")
-    #   expect(page).to have_content("You will be able to fly!")
-    #   expect(page).to have_content(5)
-    #   expect(page).to have_css("img[src=\"#{fly.image_url}\"]")
-    #   # expect(page).to have_content(fly.image_url)
-    #   expect(page).to have_content("Total: 5")
-    # end
+    it "and they click to view cart" do
+      visit powers_path
+      click_on "View Briefcase"
+    
+      expect(current_path).to eq("/briefcases")
+      expect(page).to have_content("flying")
+      expect(page).to have_content("You will be able to fly!")
+      expect(page).to have_content(5)
+      expect(page).to have_css("img[src=\"#{fly.image_url}\"]")
+      # expect(page).to have_content(fly.image_url)
+      expect(page).to have_content("Total: 5")
+    end
   end
 end
