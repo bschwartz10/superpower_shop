@@ -9,6 +9,6 @@ class Category < ActiveRecord::Base
   end
 
   def set_slug
-    self.slug = URI.escape(self.title)
+    self.slug = URI.escape(self.title).gsub('%20','-')
   end
 end
