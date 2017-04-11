@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :powers, only: [:index]
-  
+
   resources :briefcases
-  # get '/:category', to: 'categories#show'
-  
+  get '/:category', to: 'categories#show', as: 'category'
+
 end
