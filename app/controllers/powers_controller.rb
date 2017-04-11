@@ -3,10 +3,7 @@ class PowersController < ApplicationController
     @powers = Power.all
   end
 
-  def show
-  end
+  # def show
+  # end
 
-  def destroy
-    redirect_back(fallback_location: "/briefcase")
-  end
 end
