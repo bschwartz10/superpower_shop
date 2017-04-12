@@ -1,0 +1,29 @@
+<% @powers.each do |power| %>
+  <div class= <%= "power_#{power.id}" %>>
+    <h1><%= power.title %></h1>
+    <div class="power_image">
+      <img src="<%= power.image_url %>" width="50" height="50"/>
+    </div>
+    <div class="description">
+      Power Description: <%= power.description %>
+    </div>
+    <div class="price">
+      Price: $<%= power.price %>
+    </div>
+    <div class="quantity">
+      Quantity: <%= @briefcase.contents[power.id.to_s] %>
+    </div>
+    <%= button_to '+', briefcase_path(power_id: power.id, type: "increase"), method: :patch   %>
+    <% if @briefcase.contents[power.id.to_s] > 1 %>
+      <%= button_to '-', briefcase_path(power_id: power.id, type: "decrease"), method: :patch   %>
+    <% end %>
+    <%= link_to 'Remove', briefcase_path(power_id: power.id), method: :put %>
+    <div class="subtotal">
+      Subtotal: $<%= @briefcase.subtotal_cost(power.id) %>
+    </div>
+    
+  </div>
+<% end %>
+<div class="total">
+  Total: $<%= @briefcase.total_cost %>
+</div>

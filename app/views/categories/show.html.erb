@@ -1,0 +1,10 @@
+<h1> <%= @category.title %> Page </h1>
+
+<ul>
+  <% @category.powers.each do |power| %>
+  <li><%= power.title %></li>
+  <li><%= power.description %></li>
+  <li><%= power.price %></li>
+  <li><img src="<%= power.image_url %>" width="50" height="50"/></li>
+  <% end %>
+</ul>
