@@ -31,7 +31,7 @@ class BriefcasesController < ApplicationController
     if type == "increase"
       @briefcase.contents[(params[:power_id].to_s)] += 1
       redirect_back(fallback_location: "/briefcase")
-    elsif type == "decrease" && @briefcase.contents[(params[:power_id].to_s)] > 1
+    elsif type == "decrease"
       @briefcase.contents[(params[:power_id].to_s)] -= 1
       redirect_back(fallback_location: "/briefcase")
     else
