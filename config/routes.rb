@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "sessions#show"
+
   resources :powers, only: [:index, :show, :destroy]
 
   resources :briefcases, only: [:create]
