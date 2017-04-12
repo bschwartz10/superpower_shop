@@ -9,8 +9,8 @@ RSpec.feature "visitor goes to root page" do
       expect(page).to have_link "Login"
       click_on "Login"
       expect(current_path).to eq("/login")
-      expect(page).to have_field("username")
-      expect(page).to have_field("password")
+      expect(page).to have_field("Email")
+      expect(page).to have_field("Password")
       expect(page).to have_link("Create Account")
     end
   end
