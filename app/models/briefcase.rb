@@ -5,6 +5,10 @@ class Briefcase
     @contents = initial_contents || {}
   end
   
+  def subtotal_cost(power_id)
+    (Power.find(power_id).price) * contents[power_id.to_s]
+  end
+  
   def total_cost
     total = 0
     contents.each do |power_id, quantity|
