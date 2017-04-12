@@ -31,12 +31,12 @@ class BriefcasesController < ApplicationController
     if type == "increase"
       @briefcase.contents[(params[:power_id].to_s)] += 1
       redirect_back(fallback_location: "/briefcase")
-    elsif type == "decrease"
+    elsif type == "decrease" && @briefcase.contents[(params[:power_id].to_s)] > 1
       @briefcase.contents[(params[:power_id].to_s)] -= 1
       redirect_back(fallback_location: "/briefcase")
     else
-      redirect_back(fallback_location: category_path(@gif.category))
-      flash[:notice] = "Nothing happened"
+      redirect_back(fallback_location: "/briefcase")
+      flash[:notice] = "Minimum quantity is 1"
     end
   end
 end
