@@ -2,9 +2,8 @@
   <h1><%= power.title %></h1>
   <div class="power image">
     <img src="<%= power.image_url %>" width="50" height="50"/>
-    <%= button_to "Add to Briefcase", briefcases_path(power_id: power.id) %>
+    <%= button_to "Add to Briefcase", briefcases_path(power_id: power.id), class: "btn btn-warning" %>
   </div>
 <% end %>
 <%= link_to "View Briefcase", briefcase_path %>
 <!-- Briefcase: <%#= @briefcase.total_count %> <%#= button_to "Save Abilities", abilities_path %> -->
-
