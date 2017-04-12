@@ -3,15 +3,21 @@
   <div class="power image">
     <img src="<%= power.image_url %>" width="50" height="50"/>
   </div>
-  <div class="power description">
+  <div class="description">
     Power Description: <%= power.description %>
   </div>
-  <div class="power price">
+  <div class="price">
     Price: <%= power.price %>
   </div>
-  <div class="power quantity">
+  <div class="quantity">
     Quantity: <%= @briefcase.contents[power.id.to_s] %>
   </div>
+  <%= button_to '+', briefcase_path(power_id: power.id), method: :patch   %>
   <%= link_to 'Remove', briefcase_path(power_id: power.id), method: :put %>
+  <div class="subtotal">
+    Subtotal: <%= @briefcase.total_cost %>
+  </div>
 <% end %>
-Total: <%= @briefcase.total_cost %>
+<div class="total">
+  Total: <%= @briefcase.total_cost %>
+</div>

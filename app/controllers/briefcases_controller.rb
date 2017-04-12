@@ -22,8 +22,12 @@ class BriefcasesController < ApplicationController
   def update
       @power = Power.find(params[:power_id])
         @briefcase.contents.delete(params[:power_id].to_s)
-        #flash[:notice] = "Successfully removed #{view_context.link_to(@power.title, power_path(@power))} from your briefcase."
+        flash[:notice] = "Successfully removed #{view_context.link_to(@power.title, power_path(@power))} from your briefcase."
         redirect_back(fallback_location: "/briefcase")
   end
 
+  def alter_quantity
+    @briefcase.contents[(params[:power_id].to_s)] += 1
+    redirect_back(fallback_location: "/briefcase")
+  end
 end
