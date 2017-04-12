@@ -8,7 +8,7 @@
       Power Description: <%= power.description %>
     </div>
     <div class="price">
-      Price: <%= power.price %>
+      Price: $<%= power.price %>
     </div>
     <div class="quantity">
       Quantity: <%= @briefcase.contents[power.id.to_s] %>
@@ -19,11 +19,11 @@
     <% end %>
     <%= link_to 'Remove', briefcase_path(power_id: power.id), method: :put %>
     <div class="subtotal">
-      Subtotal: <%= @briefcase.subtotal_cost(power.id) %>
+      Subtotal: $<%= @briefcase.subtotal_cost(power.id) %>
     </div>
     
   </div>
 <% end %>
 <div class="total">
-  Total: <%= @briefcase.total_cost %>
+  Total: $<%= @briefcase.total_cost %>
 </div>

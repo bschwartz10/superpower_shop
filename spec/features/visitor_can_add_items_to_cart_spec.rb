@@ -32,7 +32,7 @@ RSpec.feature "When a user visits the items index page" do
       expect(page).to have_content("You will be able to fly!")
       expect(page).to have_content(5)
       expect(page).to have_css("img[src=\"#{@fly.image_url}\"]")
-      expect(page).to have_content("Total: 5")
+      expect(page).to have_content("Total: $5")
       expect(page).to have_content("Quantity: 1")
     end
 
@@ -42,7 +42,7 @@ RSpec.feature "When a user visits the items index page" do
       click_on "Add to Briefcase"
       click_on "View Briefcase"
 
-      expect(page).to have_content("Total: 10")
+      expect(page).to have_content("Total: $10")
       expect(page).to have_content("Quantity: 2")
     end
 
