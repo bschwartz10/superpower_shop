@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Visitor goes to login page" do
-  xcontext "and can enter credentials" do
+  context "and can enter credentials" do
     it "visitor make an account" do
 
       visit '/login'
