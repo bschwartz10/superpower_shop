@@ -14,9 +14,9 @@ class BriefcasesController < ApplicationController
   end
 
   def show
-    @powers = @briefcase.contents.map do |power_id, quantity|
-      Power.find(power_id)
-    end
+    # @powers = @briefcase.contents.map do |power_id, quantity|
+    #   Power.find(power_id)
+    @powers = @briefcase.powers
   end
 
   def update
