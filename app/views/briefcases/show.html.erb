@@ -11,7 +11,7 @@
       Price: $<%= power.price %>
     </div>
     <div class="quantity">
-      Quantity: <%= @briefcase.contents[power.id.to_s] %>
+      Quantity: <%= power.quantity %>
     </div>
     <%= button_to '+', briefcase_path(power_id: power.id, type: "increase"), method: :patch   %>
     <% if @briefcase.contents[power.id.to_s] > 1 %>
@@ -19,9 +19,9 @@
     <% end %>
     <%= link_to 'Remove', briefcase_path(power_id: power.id), method: :put %>
     <div class="subtotal">
-      Subtotal: $<%= @briefcase.subtotal_cost(power.id) %>
+      Subtotal: $<%= power.total_cost %>
     </div>
-    
+
   </div>
 <% end %>
 <div class="total">
@@ -32,5 +32,5 @@
     <%= link_to 'Checkout Abilities', class: 'btn btn-primary' %>
   </div>
 <% elsif session[:user_id].nil? %>
-  <%= link_to "Login or Create Account to Buy Your Abilities!", login_path, class: 'btn btn-info' %>  
+  <%= link_to "Login or Create Account to Buy Your Abilities!", login_path, class: 'btn btn-info' %>
 <% end %>
