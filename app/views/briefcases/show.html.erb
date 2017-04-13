@@ -15,7 +15,7 @@
     </div>
     <%= button_to '+', briefcase_path(power_id: power.id, type: "increase"), method: :patch   %>
     <%= decrease_quantity_button(power) %>
-    <%= link_to 'Remove', briefcase_path(power_id: power.id), method: :put %>
+    <%= button_to 'Remove', briefcase_path(power_id: power.id), class: "btn btn-danger", method: :put %>
     <div class="subtotal">
       Subtotal: $<%= power.total_cost %>
     </div>
