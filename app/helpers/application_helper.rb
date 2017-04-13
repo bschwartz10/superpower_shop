@@ -2,7 +2,7 @@ module ApplicationHelper
 
    def decrease_quantity_button(power)
       if @briefcase.contents[power.id.to_s] > 1
-       button_to '-', briefcase_path(power_id: power.id, type: "decrease"), method: :patch
+       button_to '-', briefcase_path(power_id: power.id, type: "decrease"), class: "btn btn-info", method: :patch
       end
    end
 

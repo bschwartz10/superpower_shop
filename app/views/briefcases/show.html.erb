@@ -1,3 +1,6 @@
+<div class="checkout_button_or_sign_up">
+  <h4><%= checkout_button_or_sign_up %></h4>
+</div>
 
 <% @powers.each do |power| %>
   <div class= <%= "power power_#{power.id}" %>>
@@ -14,11 +17,11 @@
     <div class="quantity">
       Quantity: <%= power.quantity %>
     </div>
-    <%= button_to '+', briefcase_path(power_id: power.id, type: "increase"), method: :patch   %>
+    <%= button_to '+', briefcase_path(power_id: power.id, type: "increase"), class: 'btn btn-info', method: :patch   %>
     <%= decrease_quantity_button(power) %>
-    <%= link_to 'Remove', briefcase_path(power_id: power.id), method: :put %>
+    <h4><%= button_to 'Remove', briefcase_path(power_id: power.id), class: 'btn btn-info', method: :put %></h4>
     <div class="subtotal">
-      Subtotal: $<%= power.total_cost %>
+      <h4>Subtotal: $<%= power.total_cost %></h4>
     </div>
 
   </div>
@@ -26,8 +29,5 @@
 </br>
 <div class="total">
   <h2> Total: $<%= @briefcase.total_cost %> </h2>
-</div>
-<div class="checkout_button_or_sign_up">
-  <%= checkout_button_or_sign_up %>
 </div>
 
