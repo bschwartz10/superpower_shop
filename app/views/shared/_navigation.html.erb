@@ -1,0 +1,15 @@
+<nav class="navbar-default navbar-fixed-top">
+  <div class="container_fluid">
+    <ul class="nav nav-tabs">
+      <li><%= link_to "Buy Powers", powers_path %></li>
+      <li><%= link_to "View Briefcase", briefcase_path %></li>
+
+      <% if current_user %>
+      <li class="navbar-right"> <%= link_to "Logout", login_path, method: :delete %></li>
+      <li class="navbar-right"> <%= link_to "Logged in as #{current_user.first_name}", dashboard_path(current_user) %></li>
+      <% else %>
+        <li class="navbar-right"> <%= link_to "Login", login_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
