@@ -37,12 +37,12 @@
            </li>
          </ul>
          <ul class="nav navbar-nav navbar-right">
-           <li> Logged in as <%= link_to current_user.first_name, dashboard_path %> </li>
-           <% if session[:user_id] != nil %>
-            <li><%= link_to "Logout", login_path, method: :delete %> </li>
+           <% if current_user %>
+             <li> Logged in as <%= link_to current_user.first_name, dashboard_path %> </li>
+             <li><%= link_to "Logout", login_path, method: :delete %> </li>
            <% end %>
            <% if session[:user_id].nil? %>
-            <li><%= link_to "Log in", login_path %></li>
+             <li><%= link_to "Log in", login_path %></li>
            <% end %>
          </ul>
        </div>
