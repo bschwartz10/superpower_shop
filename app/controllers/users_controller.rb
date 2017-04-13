@@ -8,15 +8,15 @@ class UsersController < ApplicationController
    if @user.save
      flash[:success] = "Account Created Successfully!"
      session[:user_id] = @user.id
-     redirect_to user_path(@user)
+     redirect_to dashboard_path
    else
      flash[:danger] = "Could not create account"
      redirect_to new_user_path
    end
- end
+  end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   private
