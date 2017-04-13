@@ -32,7 +32,7 @@ RSpec.feature "checkout abilities" do
       expect(page).to_not have_content("Checkout Abilities")
     end
 
-    xit "they create an account, login & see checkout" do
+    it "they create an account, login & see checkout" do
       visit powers_path
       within(".power_3") do
         click_on "Add to Briefcase"
