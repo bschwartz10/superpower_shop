@@ -17,10 +17,15 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+.navbar-default
+  background-color: #6CF5CC
+  font-weight: bold
+
 body
   background-color: #3D69B7
+  padding-top: 80px
   
-h1
+h2
   color: 2D2D2A
   
 .powers
@@ -35,9 +40,15 @@ h1
     border: solid
     width: 27%
     text-align: center
+    position: relative
     
     .btn-info
-      align-self: flex-end
+      bottom: 10%
+      left: 20%
+      
+.increment-button
+  display: inline-block
+  margin-right: 5px
   
 .btn-primary
   background-color: #2A9134
