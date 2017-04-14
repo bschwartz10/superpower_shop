@@ -1,0 +1,8 @@
+<div class= <%= "@power_#{@power.id}" %>>
+  <h1> <%= @power.title %> </h1>
+  <div class="power image">
+    <img src="<%= @power.image_url %>" width="500" height="500"/>
+  </div>
+  <p> Description: <%= @power.description %> </p>
+  <p> Price: $<%= @power.price %> </p>
+</div>

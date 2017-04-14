@@ -4,6 +4,7 @@ class PowersController < ApplicationController
   end
 
   def show
+    @power = Power.find(params[:id])
   end
 
   def destroy
