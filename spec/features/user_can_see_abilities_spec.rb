@@ -20,7 +20,7 @@ RSpec.feature "Authenticated user can see abilities" do
       end
       click_on "View Briefcase"
       click_on "Checkout Abilities"
-      expect(current_path).to eq(order_path(Order.last))
+      expect(current_path).to eq(orders_path)
 
     end
   end
@@ -35,7 +35,7 @@ RSpec.feature "Authenticated user can see abilities" do
       visit orders_path
 
       expect(current_path).to eq(orders_path)
-      expect(page).to have_content("Abilities Order #{order.id}")
+      expect(page).to have_content("Abilities Order ##{order.id}")
     end
   end
 end
