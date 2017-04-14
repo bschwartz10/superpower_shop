@@ -2,30 +2,39 @@
   <h4><%= checkout_button_or_sign_up %></h4>
 </div>
 
-<% @powers.each do |power| %>
-  <div class= <%= "power power_#{power.id}" %>>
-    <h1><%= power.title %></h1>
-    <div class="power image">
-      <img src="<%= power.image_url %>" width="50" height="50"/>
-    </div>
-    <div class="description">
-      Power Description: <%= power.description %>
-    </div>
-    <div class="price">
-      Price: $<%= power.price %>
-    </div>
-    <div class="quantity">
-      Quantity: <%= power.quantity %>
-    </div>
-    <%= button_to '+', briefcase_path(power_id: power.id, type: "increase"), class: 'btn btn-info', method: :patch   %>
-    <%= decrease_quantity_button(power) %>
-    <h4><%= button_to 'Remove', briefcase_path(power_id: power.id), class: 'btn btn-info', method: :put %></h4>
-    <div class="subtotal">
-      <h4>Subtotal: $<%= power.total_cost %></h4>
-    </div>
-
-  </div>
-<% end %>
+<div class="powers">
+  <% @powers.each do |power| %>
+    <table class= <%= "power_#{power.id} power" %>>
+      <tr>
+        <th><h1><%= power.title %></h1></th>
+      </tr>
+      <tr>
+        <td><div class="power_image">
+          <img src="<%= power.image_url %>" width="50" height="50"/>
+        </div></td>
+        <td><div class="description">
+          Power Description: <%= power.description %>
+        </div></td>
+      </tr>
+      <tr>
+        <td><div class="price">
+          Price for each: $<%= power.price %>
+        </div></td>
+        <td><div class="quantity">
+          Quantity: <%= power.quantity %>
+        </div></td>
+        <td><div class="subtotal">
+          <h4>Subtotal: $<%= power.total_cost %></h4>
+        </div></td>
+      </tr>
+      <tr>
+        <td><%= button_to '+', briefcase_path(power_id: power.id, type: "increase"), class: 'btn btn-info', method: :patch %></td>
+        <td><%= decrease_quantity_button(power) %></td>
+        <td><h4><%= button_to 'Remove', briefcase_path(power_id: power.id), class: 'btn btn-info', method: :put %></h4></td>
+      </tr>
+    </table>
+  <% end %>
+</div>
 </br>
 <div class="total">
   <h2> Total: $<%= @briefcase.total_cost %> </h2>

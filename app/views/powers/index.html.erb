@@ -1,7 +1,7 @@
 <div class="powers">
   <% @powers.each do |power| %>
-    <div class=<%= "power power_#{power.id}" %>>
-      <div class="image">
+    <div class=<%= "power_#{power.id} power" %>>
+      <div class="power_image">
         <img src="<%= power.image_url %>" width="50" height="50"/>
       <h2><%= power.title %></h1>
       <%= button_to "Add to Briefcase", briefcases_path(power_id: power.id), class: "btn btn-info" %>

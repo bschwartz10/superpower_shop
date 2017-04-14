@@ -10,7 +10,7 @@ RSpec.feature "Visitor visits their briefcase page" do
       it "" do
         visit powers_path
 
-        within(".power_#{@fly.id}") do
+        within("power_#{@fly.id}") do
           click_on "Add to Briefcase"
         end
         within(".power_#{@time_travel.id}") do
