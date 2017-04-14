@@ -13,13 +13,14 @@ class OrdersController < ApplicationController
 
     if order.save
       session[:briefcase] = nil
-      flash[:notice] = "Your order was saved! You saved #{@briefcase.powers.count} powers."
+      flash[:notice] = "Your order was saved! You saved #{@briefcase.powers.count} power."
       redirect_to order_path(order)
     else
     end
   end
 
   def show
-
+    order = Order.find(params[:id])
+    @powers = order.powers
   end
 end
