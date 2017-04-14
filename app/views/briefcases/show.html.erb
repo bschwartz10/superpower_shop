@@ -7,30 +7,32 @@
     <table class= <%= "power_#{power.id} power" %>>
       <tr>
         <th><h1><%= power.title %></h1></th>
+        <th><div class="power_image">
+          <img src="<%= power.image_url %>"/>
+        </div></th>
       </tr>
       <tr>
-        <td><div class="power_image">
-          <img src="<%= power.image_url %>" width="50" height="50"/>
-        </div></td>
         <td><div class="description">
           Power Description: <%= power.description %>
         </div></td>
-      </tr>
-      <tr>
         <td><div class="price">
           Price for each: $<%= power.price %>
         </div></td>
+      </tr>
+      <tr>
         <td><div class="quantity">
           Quantity: <%= power.quantity %>
         </div></td>
+        <td><%= button_to '+', briefcase_path(power_id: power.id, type: "increase"), class: 'btn btn-info', method: :patch %>
+            <%= decrease_quantity_button(power) %></td>
+      </tr>
+      <tr>
         <td><div class="subtotal">
           <h4>Subtotal: $<%= power.total_cost %></h4>
         </div></td>
       </tr>
       <tr>
-        <td><%= button_to '+', briefcase_path(power_id: power.id, type: "increase"), class: 'btn btn-info', method: :patch %></td>
-        <td><%= decrease_quantity_button(power) %></td>
-        <td><h4><%= button_to 'Remove', briefcase_path(power_id: power.id), class: 'btn btn-info', method: :put %></h4></td>
+        <td><%= button_to 'Remove', briefcase_path(power_id: power.id), class: 'btn btn-info', method: :put %></td>
       </tr>
     </table>
   <% end %>
