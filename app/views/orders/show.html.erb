@@ -1,10 +1,12 @@
 <div>
   <% @powers.each do |power| %>
-    <h1> <%= power.title %> </h1>
+    <h1> <%= link_to "#{power.title} Power", power_path(power) %> </h1>
     <div class="power image">
       <img src="<%= power.image_url %>" width="200" height="200"/>
     </div>
     <p> Description: <%= power.description %> </p>
     <p> Price: $<%= power.price %> </p>
   <% end %>
+  Order Status: <%= @order.status %>
+  Order Creation Time: <%= @order.created_at %>
 </div>

@@ -1,6 +1,6 @@
 <div class="orders">
   <% @orders.each do |order| %>
-  <h3>Abilities Order #<%= order.id %></h3>
+  <h3><%= link_to "Abilities Order ##{order.id}", order_path(order) %></h3>
   <p>Date Ordered: <%= order.created_at %></p>
   <% end %>
 </div>

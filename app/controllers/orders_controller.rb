@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    order = Order.find(params[:id])
-    @powers = order.powers
+    @order = Order.find(params[:id])
+    @powers = @order.powers
   end
 end
