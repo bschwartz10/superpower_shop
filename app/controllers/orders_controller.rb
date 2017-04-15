@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    @orders = Order.all
+    @orders = current_user.orders
   end
 
   def create
