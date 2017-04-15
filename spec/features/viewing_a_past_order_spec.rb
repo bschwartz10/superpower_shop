@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User see past order" do
-  it "when user visits the order index page" do
-
+  before(:each) do
     @user = User.create(first_name: "v",
                        last_name: "v",
                        email: "pepe@pepe.com",
@@ -10,9 +9,17 @@ RSpec.feature "User see past order" do
                        )
     category = Category.create(title: "cosmic", slug: "cosmic")
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
-    order = Order.create!(status: "pending", user_id: @user.id )
-
+    order = Order.create!(status: "Ordered", user_id: @user.id )
     order_power = OrderPower.create(order_id: order.id, power_id: @fly.id)
+  end
+
+  it "User can cancel order" do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+    visit
+  end
+  it "when user visits the order index page" do
+
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
