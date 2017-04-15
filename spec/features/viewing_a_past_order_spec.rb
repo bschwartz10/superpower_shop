@@ -13,20 +13,24 @@ RSpec.feature "User see past order" do
     @order_power = OrderPower.create(order_id: @order.id, power_id: @fly.id)
   end
 
-  xit "User can cancel order" do
+  it "User can cancel order" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
-    visit
+    visit order_path(@order)
+    click_on "Cancel Order"
+    expect(@order.status).to eq "Cancelled"
+    expect(current_path).to eq powers_path
   end
+
   it "when user visits the order index page" do
 
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
     visit orders_path
+    expect(page).to have_link("Abilities Order ##{@order.id}")
 
-    expect(page).to have_link("Order #1")
-    click_on "Order #1"
+    click_on "Abilities Order ##{@order.id}"
     # I should see each item that was order with the quantity and line-item subtotals
     expect(page).to have_link("flying Power")
     expect(page).to have_content("Ordered")

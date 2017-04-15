@@ -9,4 +9,9 @@
   <% end %>
   Order Status: <%= @order.status %>
   Order Creation Time: <%= @order.created_at %>
+  <% if @order.status == "C" %>
+  <%= button_to 'Pay' %>
+  <%= button_to 'Cancel Order', order_path(@order), method: :put %>
+  <% else %>
+  <%= button_to 'Pay' %>
 </div>

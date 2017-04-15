@@ -23,4 +23,11 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @powers = @order.powers
   end
+
+  def update
+    @order = Order.find(params[:id])
+    @order.update(status: "Cancelled")
+    redirect_to powers_path
+  end
+
 end
