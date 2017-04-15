@@ -4,9 +4,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy'
 
-
   resources :users, only: [:new, :create]
   get '/dashboard', to: 'users#show'
+  
+  namespace :admin do
+    # resources :orders, only: [:index]
+    get '/dashboard', to: 'orders#dashboard'
+  end
 
   resources :powers, only: [:index, :show, :destroy]
 

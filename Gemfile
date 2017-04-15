@@ -42,7 +42,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'database_cleaner'
   gem "rspec-pride" # colors!
-  gem "factory_girl_rails"
+  gem "fabrication"
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'faker'
