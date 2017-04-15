@@ -9,11 +9,11 @@ RSpec.feature "User see past order" do
                        )
     category = Category.create(title: "cosmic", slug: "cosmic")
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
-    order = Order.create!(status: "Ordered", user_id: @user.id )
-    order_power = OrderPower.create(order_id: order.id, power_id: @fly.id)
+    @order = Order.create!(status: "Ordered", user_id: @user.id )
+    @order_power = OrderPower.create(order_id: @order.id, power_id: @fly.id)
   end
 
-  it "User can cancel order" do
+  xit "User can cancel order" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
     visit
@@ -31,7 +31,7 @@ RSpec.feature "User see past order" do
     expect(page).to have_link("flying Power")
     expect(page).to have_content("Ordered")
     expect(page).to have_content("5")
-    expect(page).to have_content(order.created_at)
+    expect(page).to have_content(@order.created_at)
     # If the order was completed or cancelled
     # then I should see a timestamp when the action took place
   end
