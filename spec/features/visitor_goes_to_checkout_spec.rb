@@ -19,9 +19,6 @@ RSpec.feature "Visitor goes to cart" do
       expect(current_path).to_not eq('dashboard')
       expect(current_path).to eq('cart')
 
-
-
-
     end
     end
   end

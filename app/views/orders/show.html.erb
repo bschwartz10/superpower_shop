@@ -1,17 +1,25 @@
 <div>
-  <% @powers.each do |power| %>
-    <h1> <%= link_to "#{power.title} Power", power_path(power) %> </h1>
-    <div class="power image">
-      <img src="<%= power.image_url %>" width="200" height="200"/>
-    </div>
-    <p> Description: <%= power.description %> </p>
-    <p> Price: $<%= power.price %> </p>
-  <% end %>
-  Order Status: <%= @order.status %>
-  Order Creation Time: <%= @order.created_at %>
-  <% if @order.status == "C" %>
-  <%= button_to 'Pay' %>
-  <%= button_to 'Cancel Order', order_path(@order), method: :put %>
+  <h1><%= "Abilities Order ##{@order.id}" %></h1>
+  
+  <% unless @order.status == "Cancelled" %>
+    <% @powers.each do |power| %>
+      <h1> <%= link_to "#{power.title} Power", power_path(power) %> </h1>
+      <div class="power image">
+        <img src="<%= power.image_url %>" width="200" height="200"/>
+      </div>
+      <p> Description: <%= power.description %> </p>
+      <p> Price: $<%= power.price %> </p>
+      <p> Quantity: <%= power.order_powers.find(order_id: @order.id).power_quantity %> </p>
+      <p> Power Subtotal: $<%= power.order_powers.find(order_id: @order.id).power_total %> </p>
+    <% end %>
+    Order Status: <%= @order.status %>
+    Order Creation Time: <%= @order.created_at %>
+    <% unless @order.status == "Completed" %>
+      <%= button_to 'Pay' %>
+      <%= button_to 'Cancel Order', order_path(@order), method: :put %>
+    <% end %>
   <% else %>
-  <%= button_to 'Pay' %>
+    Your Order was cancelled on <%= @order.updated_at %>
+  <% end %>
+    
 </div>
