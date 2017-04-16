@@ -3,10 +3,15 @@
     <div class=<%= "power_#{power.id} power" %>>
       <div class="power_image">
         <img src="<%= power.image_url %>" width="50" height="50"/>
-      <h2><%= power.title %></h1>
-      <%= button_to "Add to Briefcase", briefcases_path(power_id: power.id), class: "btn btn-info" %>
-      </div>
+      <h1><%= link_to "#{power.title}", power_path(power) %></h1>
+      <% if power.status == "active" %>
+        <%= button_to "Add to Briefcase", briefcases_path(power_id: power.id), class: "btn btn-info" %>
+      <% else %>
+        <h3>Item Retired</h3>
+      <% end %>
+    </div>
     </div>
   <% end %>
 <!-- Briefcase: <%#= @briefcase.total_count %> <%#= button_to "Save Abilities", abilities_path %> -->
+
 </div>
