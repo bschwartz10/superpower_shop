@@ -14,7 +14,7 @@ RSpec.feature "Visitor goes to login page" do
       fill_in "user[password]", with: "123abc"
       fill_in "user[password_confirmation]", with: "123abc"
 
-      click_on "Create Account"
+      click_on "Create User"
 
       expect(current_path).to eq('/dashboard')
       expect(page).to have_text("Logged in as Ken")

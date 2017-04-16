@@ -16,8 +16,8 @@ RSpec.feature "User goes to edit profile page" do
       fill_in "user[password]", with: "123abc"
       fill_in "user[password_confirmation]", with: "123abc"
 
-      within('.edit_account') do
-        click_on "Edit Account"
+      within('.account_form') do
+        click_on "Update User"
       end
 
       expect(current_path).to eq('/dashboard')
