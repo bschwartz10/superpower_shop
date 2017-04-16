@@ -1,6 +1,6 @@
 <div>
   <h1><%= "Abilities Order ##{@order.id}" %></h1>
-  
+
   <% unless @order.status == "Cancelled" %>
     <% @powers.each do |power| %>
       <h1> <%= link_to "#{power.title} Power", power_path(power) %> </h1>
@@ -9,8 +9,8 @@
       </div>
       <p> Description: <%= power.description %> </p>
       <p> Price: $<%= power.price %> </p>
-      <p> Quantity: <%= power.order_powers.find(order_id: @order.id).power_quantity %> </p>
-      <p> Power Subtotal: $<%= power.order_powers.find(order_id: @order.id).power_total %> </p>
+      <!-- <p> Quantity: <#%= power.order_powers.find(order_id: @order.id).power_quantity %> </p> -->
+      <!-- <p> Power Subtotal: $<#%= power.order_powers.find(order_id: @order.id).power_total %> </p> -->
     <% end %>
     Order Status: <%= @order.status %>
     Order Creation Time: <%= @order.created_at %>
@@ -21,5 +21,5 @@
   <% else %>
     Your Order was cancelled on <%= @order.updated_at %>
   <% end %>
-    
+
 </div>

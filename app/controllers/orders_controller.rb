@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
 
     if order.save
       session[:briefcase] = nil
-      flash[:notice] = "Your order was saved! You saved #{@briefcase.powers.count} power."
+      flash[:notice] = "Order was successfully placed."
       redirect_to order_path(order)
     else
     end
