@@ -8,4 +8,13 @@ class Admin::OrdersController < Admin::BaseController
     @completed_orders_count = Order.where(status: "completed").pluck(:status).count
   end
 
+  def filter
+    type = params[:type]
+      if type == "ordered"
+        @orders = Order.where(status: "ordered")
+        render :ordered
+
+      end
+  end
+
 end

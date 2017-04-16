@@ -6,10 +6,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   get '/dashboard', to: 'users#show'
-  
+
   namespace :admin do
     # resources :orders, only: [:index]
     get '/dashboard', to: 'orders#dashboard'
+    get '/filter', to: 'orders#filter'
   end
 
   resources :powers, only: [:index, :show, :destroy]
