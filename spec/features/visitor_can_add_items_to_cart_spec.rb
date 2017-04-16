@@ -11,15 +11,15 @@ RSpec.feature "When a user visits the items index page" do
 
       click_on "Add to Briefcase"
       expect(current_path).to eq powers_path
-      expect(page).to have_content("You now have 1 flying")
+      expect(page).to have_content("You now have 1 flying power")
     end
 
     it "the message increments for multiple powers" do
       visit powers_path
       click_on "Add to Briefcase"
-      expect(page).to have_content("You now have 1 flying")
+      expect(page).to have_content("You now have 1 flying power")
       click_on "Add to Briefcase"
-      expect(page).to have_content("You now have 2 flyings")
+      expect(page).to have_content("You now have 2 flying powers")
     end
 
     it "and they click to view briefcase" do
