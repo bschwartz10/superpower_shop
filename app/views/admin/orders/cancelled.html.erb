@@ -2,5 +2,5 @@
 
 
 <% @orders.each do |order| %>
-  <%= order.id %>
+  <p><%= link_to "Order #{order.id}", order_path(order) %> was cancelled on <%= order.updated_at %></p>
 <% end %>

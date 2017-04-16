@@ -2,5 +2,9 @@
 
 
 <% @orders.each do |order| %>
-  <%= order.id %>
+  <p> <%= link_to "Order #{order.id}", order_path(order) %> was ordered on <%= order.updated_at %></p>
+
+  <%= button_to 'Cancel Order', order_path(order, type: "cancel"), method: :put %>
+  <%= button_to 'Mark as Paid', order_path(order, type: "pay"), method: :put %>
+
 <% end %>

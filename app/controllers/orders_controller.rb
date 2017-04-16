@@ -27,7 +27,14 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order.update(status: "Cancelled")
+    type = params[:type]
+    if type == "cancel"
+      @order.update(status: "Cancelled")
+    elsif type == "pay"
+      @order.update(status: "Paid")
+    elsif type == "complete"
+      @order.update(status: "Completed")
+    end
     redirect_to powers_path
   end
 
