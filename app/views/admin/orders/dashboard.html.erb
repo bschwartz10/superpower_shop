@@ -5,6 +5,6 @@
 <% end %>
 
 <h1> <%= link_to "Ordered Orders:", admin_filter_path(type: "ordered") %> <%= @ordered_orders_count %> </h1>
-<h1>Paid Orders: <%= @paid_orders_count %> </h1>
-<h1>Cancelled Orders: <%= @cancelled_orders_count %> </h1>
-<h1>Completed Orders: <%= @completed_orders_count %> </h1>
+<h1><%= link_to "Paid Orders:", admin_filter_path(type: "paid") %> <%= @paid_orders_count %> </h1>
+<h1><%= link_to "Cancelled Orders:", admin_filter_path(type: "cancelled") %> <%= @cancelled_orders_count %> </h1>
+<h1><%= link_to "Completed Orders:", admin_filter_path(type: "completed") %> <%= @completed_orders_count %> </h1>

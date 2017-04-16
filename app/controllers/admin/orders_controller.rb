@@ -13,7 +13,15 @@ class Admin::OrdersController < Admin::BaseController
       if type == "ordered"
         @orders = Order.where(status: "ordered")
         render :ordered
-
+      elsif type == "paid"
+        @orders = Order.where(status: "paid")
+        render :paid
+      elsif type == "cancelled"
+        @orders = Order.where(status: "cancelled")
+        render :cancelled
+      elsif type == "completed"
+        @orders = Order.where(status: "completed")
+        render :completed
       end
   end
 

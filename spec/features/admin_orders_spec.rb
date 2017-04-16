@@ -52,7 +52,7 @@ describe "When an admin visits the admin dashboard" do
     expect(current_path).to eq(order_path(order1))
   end
 
-  it "order status link leads to a page that lists all orders with that status" do
+  it "order status link leads to a page that lists all orders with an ordered status" do
     @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
     category = Category.create(title: "cosmic", slug: "cosmic")
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
@@ -64,6 +64,53 @@ describe "When an admin visits the admin dashboard" do
     visit admin_dashboard_path
 
     click_on "Ordered Orders"
+
+    expect(page).to have_content(order1.id)
+  end
+
+  it "order status link leads to a page that lists all orders with an paid status" do
+    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
+    category = Category.create(title: "cosmic", slug: "cosmic")
+    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
+    order1 = Order.create!(status: "paid", user_id: @admin.id )
+
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+
+    visit admin_dashboard_path
+
+    click_on "Paid Orders"
+
+    expect(page).to have_content(order1.id)
+  end
+  it "order status link leads to a page that lists all orders with an cancelled status" do
+    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
+    category = Category.create(title: "cosmic", slug: "cosmic")
+    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
+    order1 = Order.create!(status: "cancelled", user_id: @admin.id )
+
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+
+    visit admin_dashboard_path
+
+    click_on "Cancelled Orders"
+
+    expect(page).to have_content(order1.id)
+  end
+
+  it "order status link leads to a page that lists all orders with an completed status" do
+    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
+    category = Category.create(title: "cosmic", slug: "cosmic")
+    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
+    order1 = Order.create!(status: "completed", user_id: @admin.id )
+
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+
+    visit admin_dashboard_path
+
+    click_on "Completed Orders"
 
     expect(page).to have_content(order1.id)
   end
