@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170415235843) do
 
   # These are extensions that must be enabled in order to support this database
@@ -27,14 +26,12 @@ ActiveRecord::Schema.define(version: 20170415235843) do
     t.integer "order_id"
     t.integer "power_id"
     t.integer "power_quantity", default: 1
-
     t.index ["order_id"], name: "index_order_powers_on_order_id", using: :btree
     t.index ["power_id"], name: "index_order_powers_on_power_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "status",     default: "pending"
     t.string   "status",     default: "Ordered"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
