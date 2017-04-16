@@ -12,8 +12,8 @@ Rails:
 
 # TODO: put your overrides here:
 
-# StringLiterals:
-#  EnforcedStyle: single_quotes
+StringLiterals:
+ Enabled: false
 #
 # LineLength:
 #  Max: 200
