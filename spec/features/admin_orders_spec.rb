@@ -37,5 +37,19 @@ describe "When an admin visits the admin dashboard" do
     expect(page).to have_content("Completed Orders: 1")
   end
 
+  it "each order is a link that leads to its show page" do
+    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
+    category = Category.create(title: "cosmic", slug: "cosmic")
+    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
+    order1 = Order.create!(status: "ordered", user_id: @admin.id )
+
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+
+    visit admin_dashboard_path
+
+    click_on "Order ##{order1.id}"
+    expect(current_path).to eq(order_path(order1))
+  end
 
 end

@@ -1,7 +1,7 @@
 <h1>Admin Dashboard</h1>
 
 <% @orders.each do |order| %>
-  Order #<%= order.id %>
+  <%= link_to "Order ##{order.id}", order_path(order)%>
 <% end %>
 
 <h1>Ordered Orders: <%= @ordered_orders_count %> </h1>
