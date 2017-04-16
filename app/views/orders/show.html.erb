@@ -12,10 +12,11 @@
       <p> Quantity: <%= power.order_powers.find_by(order_id: @order.id).power_quantity %> </p>
       <p> Subtotal: $<%= power.order_powers.find_by(order_id: @order.id).power_total %> </p>
     <% end %>
+    Order Total: $<%= @order.total %>
     Order Status: <%= @order.status %>
     Order Creation Time: <%= @order.created_at %>
     <% unless @order.status == "Completed" %>
-      <%= button_to 'Pay' %>
+      <%= button_to 'Pay To Complete Order' %>
       <%= button_to 'Cancel Order', order_path(@order), method: :put %>
     <% end %>
   <% else %>

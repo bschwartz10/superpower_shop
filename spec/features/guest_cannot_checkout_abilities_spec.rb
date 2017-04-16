@@ -79,7 +79,7 @@ RSpec.feature "checkout abilities" do
       click_on "Checkout Abilities"
 
       expect(current_path).to eq(order_path(Order.last))
-      expect(page).to have_content "Order was successfully placed"
+      expect(page).to have_content "Your order was successfully placed"
     end
   end
 end

@@ -26,7 +26,7 @@ RSpec.feature "User see past order" do
     expect(current_path).to eq powers_path
   end
 
-  xit "when user visits the order index page" do
+  it "when user visits the order index page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
     visit powers_path
@@ -42,11 +42,10 @@ RSpec.feature "User see past order" do
     # I should see each item that was order with the quantity and line-item subtotals
     expect(page).to have_link("flying Power")
     expect(page).to have_content("Ordered")
-    expect(page).to have_content("5")
     expect(page).to have_content(Order.last.created_at)
-    expect(page).to have_content("Power Quantity: 2")
-    expect(page).to have_content("Power Subtotal: $10")
-    expect(page).to have_content("Order Total: $10")
+    expect(page).to have_content("Quantity: 2")
+    expect(page).to have_content("Subtotal: $10")
+    expect(page).to have_content("Total: $10")
 
   end
 end
