@@ -15,12 +15,13 @@
             <li><a href="/admin/filter?type=completed">Completed</a></li>
           </ul>
         </li>
+      <% end %>
 
       <% if current_user %>
-      <li> <%= link_to "View Orders", orders_path %></li>
-      <li class="navbar-right"> <%= link_to "Logout", login_path, method: :delete %></li>
-      <li class="navbar-right"> <%= link_to "Edit Account", edit_user_path(current_user)%></li>
-      <li class="navbar-right"> <%= link_to "Logged in as #{current_user.first_name}", dashboard_path(current_user) %></li>
+        <li> <%= link_to "View Orders", orders_path %></li>
+        <li class="navbar-right"> <%= link_to "Logout", login_path, method: :delete %></li>
+        <li class="navbar-right"> <%= link_to "Edit Account", edit_user_path(current_user)%></li>
+        <li class="navbar-right"> <%= link_to "Logged in as #{current_user.first_name}", dashboard_path(current_user) %></li>
       <% else %>
         <li class="navbar-right"> <%= link_to "Login", login_path %></li>
       <% end %>
