@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   put '/briefcase', to: "briefcases#update"
   patch '/briefcase', to: "briefcases#alter_quantity"
 
-  resources :orders, only: [:index, :show, :create]
+  resources :orders, only: [:index, :show, :create, :update]
   get '/:category', to: 'categories#show', as: 'category'
 end
