@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy'
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit, :update]
+
   get '/dashboard', to: 'users#show'
 
   namespace :admin do
@@ -21,5 +22,6 @@ Rails.application.routes.draw do
   patch '/briefcase', to: "briefcases#alter_quantity"
 
   resources :orders, only: [:index, :show, :create, :update]
+  get '/categories', to: 'categories#index'
   get '/:category', to: 'categories#show', as: 'category'
 end

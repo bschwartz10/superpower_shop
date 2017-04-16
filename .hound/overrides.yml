@@ -1,0 +1,19 @@
+# NOTE: DO NOT put a 'inheried_from' in this file, because Hound with silently
+# ignore it
+#
+# Files you want to exclude
+
+Rails:
+  Enabled: true
+  Exclude:
+    - db/schema.rb
+    - Gemfile
+    - Rakefile
+
+# TODO: put your overrides here:
+
+StringLiterals:
+ Enabled: false
+#
+# LineLength:
+#  Max: 200
