@@ -7,10 +7,10 @@
       <div class="power image">
         <img src="<%= power.image_url %>" width="200" height="200"/>
       </div>
-      <p> Description: <%= power.description %> </p>
+      <p> <%= power.description %> </p>
       <p> Price: $<%= power.price %> </p>
-      <p> Quantity: <%= power.order_powers.find(order_id: @order.id).power_quantity %> </p>
-      <p> Power Subtotal: $<%= power.order_powers.find(order_id: @order.id).power_total %> </p>
+      <p> Quantity: <%= power.order_powers.find_by(order_id: @order.id).power_quantity %> </p>
+      <p> Subtotal: $<%= power.order_powers.find_by(order_id: @order.id).power_total %> </p>
     <% end %>
     Order Status: <%= @order.status %>
     Order Creation Time: <%= @order.created_at %>

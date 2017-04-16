@@ -44,8 +44,8 @@ RSpec.feature "User see past order" do
     expect(page).to have_content("Ordered")
     expect(page).to have_content("5")
     expect(page).to have_content(Order.last.created_at)
-    expect(page).to have_content("#{@fly.title} Power Quantity: 2")
-    expect(page).to have_content("#{@fly.title} Power Total: $10")
+    expect(page).to have_content("Power Quantity: 2")
+    expect(page).to have_content("Power Subtotal: $10")
     expect(page).to have_content("Order Total: $10")
     
   end
