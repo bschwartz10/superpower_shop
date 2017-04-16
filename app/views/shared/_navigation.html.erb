@@ -2,8 +2,11 @@
   <div class="container_fluid">
     <ul class="nav nav-tabs">
       <li><%= link_to "Buy Powers", powers_path %></li>
+      <li><%= link_to "View Power Categories", categories_path %></li>
       <li><%= link_to "View Briefcase", briefcase_path %></li>
-
+      <% if current_user %>
+      <li> <%= link_to "View Orders", orders_path %></li>
+      <% end %>
       <% if current_user %>
       <li class="navbar-right"> <%= link_to "Logout", login_path, method: :delete %></li>
       <li class="navbar-right"> <%= link_to "Edit Account", edit_user_path(current_user)%></li>
