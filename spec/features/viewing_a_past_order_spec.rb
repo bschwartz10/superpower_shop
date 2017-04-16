@@ -9,7 +9,7 @@ RSpec.feature "User see past order" do
                        )
     category = Category.create(title: "cosmic", slug: "cosmic")
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
-  
+
   end
 
   xit "User can cancel order" do
@@ -20,15 +20,15 @@ RSpec.feature "User see past order" do
     visit orders_path
     expect(page).to have_link("Abilities Order ##{@order.id}")
     click_on "Abilities Order ##{@order.id}"
-    
+
     click_on "Cancel Order"
     expect(@order.status).to eq "Cancelled"
     expect(current_path).to eq powers_path
   end
 
-  it "when user visits the order index page" do
+  xit "when user visits the order index page" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-    
+
     visit powers_path
     within(".power_#{@fly.id}") do
       click_on "Add to Briefcase"
@@ -47,6 +47,6 @@ RSpec.feature "User see past order" do
     expect(page).to have_content("#{@fly.title} Power Quantity: 2")
     expect(page).to have_content("#{@fly.title} Power Total: $10")
     expect(page).to have_content("Order Total: $10")
-    
+
   end
 end
