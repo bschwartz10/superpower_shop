@@ -1,28 +1,28 @@
 <!-- 
 <div class="checkout_button_or_sign_up">
-  <h4><%= checkout_button_or_sign_up %></h4>
+  <h4><%#= checkout_button_or_sign_up %></h4>
 </div> -->
 
-<!-- <% @powers.each do |power| %>
-  <div class= <%= "power_#{power.id}" %>>
-    <h1><%= power.title %></h1>
+<!-- <%# @powers.each do |power| %>
+  <div class= <%#= "power_#{power.id}" %>>
+    <h1><%#= power.title %></h1>
     <div class="power_image">
-      <img src="<%= power.image_url %>" width="50" height="50"/>
+      <img src="<%#= power.image_url %>" width="50" height="50"/>
     </div>
     <div class="description">
-      Power Description: <%= power.description %>
+      Power Description: <%#= power.description %>
     </div>
     <div class="price">
-      Price: $<%= power.price %>
+      Price: $<%#= power.price %>
     </div>
     <div class="quantity">
-      Quantity: <%= power.quantity %>
+      Quantity: <%#= power.quantity %>
     </div>
-    <%= button_to '+', briefcase_path(power_id: power.id, type: "increase"), method: :patch   %>
-    <%= decrease_quantity_button(power) %>
-    <%= button_to 'Remove', briefcase_path(power_id: power.id), class: "btn btn-danger", method: :put %>
+    <%#= button_to '+', briefcase_path(power_id: power.id, type: "increase"), method: :patch   %>
+    <%#= decrease_quantity_button(power) %>
+    <%#= button_to 'Remove', briefcase_path(power_id: power.id), class: "btn btn-danger", method: :put %>
     <div class="subtotal">
-      Subtotal: $<%= power.total_cost %>
+      Subtotal: $<%#= power.total_cost %>
     </div> -->
 
 <div class="powers">
