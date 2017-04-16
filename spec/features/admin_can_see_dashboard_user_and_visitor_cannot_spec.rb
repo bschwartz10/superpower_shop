@@ -4,7 +4,7 @@ describe "Person visits admin dashboard page" do
   context "as admin" do
     it "allows admin to see dashboard" do
       admin = User.create(email: "penelope@penelope.com", password: "boom", role: 1)
-      
+
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
       visit admin_dashboard_path
       
@@ -22,7 +22,7 @@ describe "Person visits admin dashboard page" do
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
-  
+
   context "as a guest" do
     it "doesn't allow guest to see admin dashbaord" do
       visit admin_dashboard_path
