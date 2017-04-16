@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
                     uniqueness: true
   enum role: %w(default admin)
+  has_many :orders
 end

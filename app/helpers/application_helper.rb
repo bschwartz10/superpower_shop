@@ -7,8 +7,8 @@ module ApplicationHelper
    end
 
    def checkout_button_or_sign_up
-      if current_user
-         link_to 'Checkout Abilities', class: 'btn btn-primary'
+      if current_user && @briefcase.total_cost > 0
+         button_to 'Checkout Abilities', orders_path(user_id: current_user.id), class: 'btn btn-primary', id: 'checkout_btn'
       elsif session[:user_id].nil?
          link_to "Login or Create Account to Buy Your Abilities!", login_path, class: 'btn btn-info'
       end
