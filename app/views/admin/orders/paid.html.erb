@@ -1,0 +1,8 @@
+<h1>Paid Orders</h1>
+
+
+<% @orders.each do |order| %>
+  <p><%= link_to "Order #{order.id}", order_path(order) %> was paid on <%= order.updated_at %></p>
+  <%= button_to 'Cancel Order', order_path(order, type: "cancel"), method: :put %>
+  <%= button_to 'Mark as Completed', order_path(order, type: "complete"), method: :put %>
+<% end %>
