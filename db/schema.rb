@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412220334) do
+ActiveRecord::Schema.define(version: 20170415235843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,14 +22,31 @@ ActiveRecord::Schema.define(version: 20170412220334) do
     t.string   "slug"
   end
 
+  create_table "order_powers", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "power_id"
+    t.integer "power_quantity", default: 1
+    t.index ["order_id"], name: "index_order_powers_on_order_id", using: :btree
+    t.index ["power_id"], name: "index_order_powers_on_power_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "status",     default: "Ordered"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
   create_table "powers", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
     t.integer  "price"
     t.string   "image_url"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "status",      default: "active"
     t.index ["category_id"], name: "index_powers_on_category_id", using: :btree
   end
 
@@ -39,9 +56,13 @@ ActiveRecord::Schema.define(version: 20170412220334) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "password_confirmation"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "role",                  default: 0
   end
 
+  add_foreign_key "order_powers", "orders"
+  add_foreign_key "order_powers", "powers"
+  add_foreign_key "orders", "users"
   add_foreign_key "powers", "categories"
 end
