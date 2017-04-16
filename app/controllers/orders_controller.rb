@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
     if order.save
       require "pry"; binding.pry
       session[:briefcase] = nil
-      flash[:notice] = "Your order was saved! You saved #{@briefcase.powers.count} power."
+      flash[:notice] = "Your order was successfully placed. You ordered #{pluralize(@briefcase.powers.count, "power")}."
       redirect_to order_path(order)
     else
     end

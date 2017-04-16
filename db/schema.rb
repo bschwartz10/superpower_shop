@@ -44,8 +44,9 @@ ActiveRecord::Schema.define(version: 20170415235843) do
     t.integer  "price"
     t.string   "image_url"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "status",      default: "active"
     t.index ["category_id"], name: "index_powers_on_category_id", using: :btree
   end
 

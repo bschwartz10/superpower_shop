@@ -1,6 +1,6 @@
 <div>
   <h1><%= "Abilities Order ##{@order.id}" %></h1>
-  
+
   <% unless @order.status == "Cancelled" %>
     <% @powers.each do |power| %>
       <h1> <%= link_to "#{power.title} Power", power_path(power) %> </h1>
@@ -21,5 +21,5 @@
   <% else %>
     Your Order was cancelled on <%= @order.updated_at %>
   <% end %>
-    
+
 </div>
