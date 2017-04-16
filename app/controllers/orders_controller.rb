@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
     if order.save
       session[:briefcase] = nil
-      flash[:notice] = "Your order was successfully placed."
+      flash[:notice] = "Your order was successfully placed. You ordered #{pluralize(order.quantity, "power")}."
       redirect_to order_path(order)
     else
     end
