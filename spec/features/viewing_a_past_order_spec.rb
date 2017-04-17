@@ -12,7 +12,7 @@ RSpec.feature "User see past order" do
 
   end
 
-  xit "User can cancel order" do
+  it "User can cancel order" do
     @order = Order.create!(status: "Ordered", user_id: @user.id )
     @order_power = OrderPower.create(order_id: @order.id, power_id: @fly.id)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
@@ -22,7 +22,7 @@ RSpec.feature "User see past order" do
     click_on "Abilities Order ##{@order.id}"
 
     click_on "Cancel Order"
-    expect(@order.status).to eq "Cancelled"
+    expect(Order.last.status).to eq "Cancelled"
     expect(current_path).to eq powers_path
   end
 
