@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     # resources :orders, only: [:index]
     get '/dashboard', to: 'orders#dashboard'
     get '/filter', to: 'orders#filter'
+    resources :powers, only: [:new, :create]
   end
 
   resources :powers, only: [:index, :show, :destroy]

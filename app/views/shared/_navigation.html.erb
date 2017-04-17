@@ -6,6 +6,7 @@
         <ul class="dropdown-menu">
           <li class="all_orders"><%= link_to "All Powers", powers_path %></li>
           <li><%= link_to "Power Categories", categories_path %></li>
+          <li><%= link_to "Create New Power", new_admin_power_path %></li>
         </ul>
       </li>
       <li><%= link_to "Briefcase (#{@briefcase.total_count})", briefcase_path %></li>
@@ -21,7 +22,7 @@
           </ul>
         </li>
       <% end %>
-      
+
       <% if current_user && !current_admin? %>
         <li> <%= link_to "Orders", orders_path %></li>
       <% end %>
@@ -37,7 +38,7 @@
       <% else %>
         <li class="navbar-right login"> <%= link_to "Login", login_path %></li>
       <% end %>
-      
+
     </ul>
   </div>
 </nav>
