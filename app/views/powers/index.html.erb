@@ -1,6 +1,6 @@
 <div class="powers">
   <% @powers.each do |power| %>
-    <div class=<%= "power_#{power.id} power" %>>
+    <div class=<%= "power power_#{power.id}" %>>
       <div class="power_image">
         <img src="<%= power.image_url %>" width="50" height="50"/>
       <h1><%= link_to "#{power.title}", power_path(power) %></h1>
