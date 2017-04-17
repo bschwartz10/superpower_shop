@@ -31,4 +31,11 @@ class Briefcase
   def count_of(power_id)
     contents[power_id.to_s]
   end
+
+  def total_contents
+    powers.map do |briefcase_power|
+      briefcase_power.quantity
+    end.reduce(:+)
+  end
+
 end
