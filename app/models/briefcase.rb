@@ -31,4 +31,14 @@ class Briefcase
   def count_of(power_id)
     contents[power_id.to_s]
   end
+  
+  def increase_or_decrease(type, power_id)
+    if type == "increase"
+      contents[power_id.to_s] += 1
+    elsif type == "decrease"
+      contents[power_id.to_s] -= 1
+    else
+      flash[:notice] = "Minimum quantity is 1"
+    end
+  end
 end

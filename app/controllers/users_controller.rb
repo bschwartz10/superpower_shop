@@ -10,7 +10,7 @@ class UsersController < ApplicationController
      session[:user_id] = @user.id
      redirect_to dashboard_path
    else
-     flash[:danger] = "Could not create account"
+     flash[:danger] = "Could not create account because #{@user.errors.full_messages.join(", ")}"
      redirect_to new_user_path
    end
   end
