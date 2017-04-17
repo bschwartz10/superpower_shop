@@ -31,5 +31,4 @@ class Briefcase
   def count_of(power_id)
     contents[power_id.to_s]
   end
-
 end
