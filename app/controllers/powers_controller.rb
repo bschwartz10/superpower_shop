@@ -1,6 +1,6 @@
 class PowersController < ApplicationController
   def index
-    @powers = Power.all
+    @powers = Power.where(status: 'active')
   end
 
   def show
