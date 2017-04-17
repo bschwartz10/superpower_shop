@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @paid_orders = current_user.orders.where(status: 'Paid')
   end
 
   def edit
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    
+
     if @user.update(user_params)
       flash[:success] = "Account Updated Successfully!"
       session[:user_id] = @user.id
