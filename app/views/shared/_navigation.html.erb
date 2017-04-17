@@ -3,13 +3,11 @@
     <ul class="nav nav-tabs">
       <li><%= link_to "Buy Powers", powers_path %></li>
       <li><%= link_to "Power Categories", categories_path %></li>
-      <li><%= link_to "Briefcase", briefcase_path %></li>
+      <li><%= link_to "Briefcase (#{@briefcase.total_count})", briefcase_path %></li>
       
       <% if current_user %>
         <li> <%= link_to "Orders", orders_path %></li>
         <li class="navbar-right logout"> <%= link_to "Logout", login_path, method: :delete %></li>
-        <!-- <li class="navbar-right"> <%#= link_to "Edit Account", edit_user_path(current_user)%></li>
-        <li class="navbar-right"> <%#= link_to "Logged in as #{current_user.first_name}", dashboard_path(current_user) %></li> -->
         <li class="navbar-right dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "Logged in as #{current_user.first_name}" %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -20,7 +18,7 @@
       <% else %>
         <li class="navbar-right login"> <%= link_to "Login", login_path %></li>
       <% end %>
-      
+
       <% if current_admin? %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order Statuses <span class="caret"></span></a>
