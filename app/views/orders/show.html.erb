@@ -15,9 +15,11 @@
     Order Total: $<%= @order.total %>
     Order Status: <%= @order.status %>
     Order Creation Time: <%= @order.created_at %>
-    <% unless @order.status == "Completed" %>
-      <%= button_to 'Pay To Complete Order' %>
-      <%= button_to 'Cancel Order', order_path(@order), method: :put %>
+    <% unless @order.status == "Completed" || @order.status == "Cancelled" %>
+      <% unless @order.status == "Paid" %>
+        <%= button_to 'Pay To Complete Order' %>
+      <% end %> 
+      <%= button_to 'Cancel Order', order_path(@order, type: "cancel"), method: :put %>
     <% end %>
   <% else %>
     Your Order was cancelled on <%= @order.updated_at %>

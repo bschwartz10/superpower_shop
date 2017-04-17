@@ -9,7 +9,7 @@ class BriefcasesController < ApplicationController
     # session[:briefcase] = briefcase
     @briefcase.add_power(power.id)
     session[:briefcase] = @briefcase.contents
-    flash[:notice] = "You now have #{pluralize(@briefcase.count_of(power.id), power.title)}."
+    flash[:notice] = "You now have #{pluralize(@briefcase.count_of(power.id), "#{power.title} power")}."
     redirect_to powers_path
   end
 

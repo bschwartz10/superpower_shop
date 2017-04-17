@@ -1,15 +1,22 @@
 require 'rails_helper'
 
-RSpec.describe Power, type: :model do
-  context "relationships" do
-    it "has many orders" do
-      user = User.create(first_name: "v",
-                         last_name: "v",
-                         email: "pepe@pepe.com",
-                         password: "password"
-                         )
+describe User, type: :model do
+  it { should validate_presence_of(:email) }
+  it { should validate_uniqueness_of(:email) }
+  it { should have_secure_password }
 
-      expect(user).to respond_to(:orders)
-    end
+  it "user can be created as an admin" do
+    user = User.create(email: "penelope@penelope.com", password: "boom", role: 1)
+
+    expect(user.role).to eq("admin")
+    expect(user.admin?).to be_truthy
+  end
+
+  it "user can be created as a default user" do
+    user = User.create(email: "sam", password: "pass", role: 0)
+
+    expect(user.role).to eq("default")
+    expect(user.default?).to be_truthy
+    expect(user.admin?).to be_falsey
   end
 end

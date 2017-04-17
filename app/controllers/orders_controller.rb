@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
     if order.save
       session[:briefcase] = nil
-      flash[:notice] = "Your order was successfully placed."
+      flash[:notice] = "Your order was successfully placed. You ordered #{pluralize(order.quantity, "power")}."
       redirect_to order_path(order)
     else
     end
@@ -27,7 +27,14 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order.update(status: "Cancelled")
+    type = params[:type]
+    if type == "cancel"
+      @order.update(status: "Cancelled")
+    elsif type == "pay"
+      @order.update(status: "Paid")
+    elsif type == "complete"
+      @order.update(status: "Completed")
+    end
     redirect_to powers_path
   end
 

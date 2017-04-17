@@ -14,7 +14,11 @@ class SessionsController < ApplicationController
     # track that they are logged in
       session[:user_id] = user.id
     #if password checks out then send them to profile
-      redirect_to dashboard_path
+      if current_admin?
+        redirect_to admin_dashboard_path
+      else
+        redirect_to dashboard_path
+      end
     else
   # otherwise tell the user the process fialed
       flash.now[:danger] = "Unsuccessful Log In"

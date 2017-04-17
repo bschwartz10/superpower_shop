@@ -49,7 +49,7 @@ RSpec.feature "checkout abilities" do
       fill_in "user[password]", with: "123abc"
       fill_in "user[password_confirmation]", with: "123abc"
 
-      click_on "Create Account"
+      click_on "Create User"
       visit briefcase_path
 
       expect(page).to have_content("flying")

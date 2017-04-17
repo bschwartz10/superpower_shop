@@ -1,12 +1,14 @@
 require 'rails_helper'
 
-RSpec.feature "Visitor goes to login page" do
-  context "and can enter credentials" do
-    it "visitor make an account" do
+RSpec.feature "User goes to edit profile page" do
+  context "and can edit credentials" do
+    it "edits account" do
+      user = User.create(first_name: "brett", last_name: "schwartz", email: "bschwartz@example.com", password: "password", password_confirmation: "password")
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit '/login'
+      visit root_path
 
-      click_on "Create Account"
+      click_on "Edit Account"
 
       fill_in "user[first_name]", with: "Ken"
       fill_in "user[last_name]", with: "Lee"
@@ -14,7 +16,9 @@ RSpec.feature "Visitor goes to login page" do
       fill_in "user[password]", with: "123abc"
       fill_in "user[password_confirmation]", with: "123abc"
 
-      click_on "Create User"
+      within('.account_form') do
+        click_on "Update User"
+      end
 
       expect(current_path).to eq('/dashboard')
       expect(page).to have_text("Logged in as Ken")
