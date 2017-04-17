@@ -15,10 +15,14 @@ RSpec.feature "checkout abilities" do
                          )
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit powers_path
-      within(".power_#{@fly.id}") do
+      within(".power") do
         click_on "Add to Briefcase"
       end
-      click_on "View Briefcase"
+
+      within ('.nav') do
+        click_on "Briefcase"
+      end
+
       expect(page).to have_button("checkout_btn")
     end
   end
@@ -26,20 +30,26 @@ RSpec.feature "checkout abilities" do
   context "when a visitor visits /briefcase" do
     it "they do not see an option to checkout" do
       visit powers_path
-      within(".power_#{@fly.id}") do
+      within(".power") do
         click_on "Add to Briefcase"
       end
-      click_on "View Briefcase"
+
+      within ('.nav') do
+        click_on "Briefcase"
+      end
 
       expect(page).to_not have_button("checkout_btn")
     end
 
     it "they create an account, login & see checkout" do
       visit powers_path
-      within(".power_#{@fly.id}") do
+      within(".power") do
         click_on "Add to Briefcase"
       end
-      click_on "View Briefcase"
+
+      within ('.nav') do
+        click_on "Briefcase"
+      end
       click_on("Login or Create Account to Buy Your Abilities!")
       click_on "Create Account"
 
@@ -70,11 +80,13 @@ RSpec.feature "checkout abilities" do
 
       visit powers_path
 
-      within(".power_#{@fly.id}") do
+      within(".power") do
         click_on "Add to Briefcase"
       end
 
-      click_on "View Briefcase"
+      within ('.nav') do
+        click_on "Briefcase"
+      end
 
       click_on "Checkout Abilities"
 

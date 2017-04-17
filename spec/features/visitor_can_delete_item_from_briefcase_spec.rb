@@ -9,7 +9,11 @@ RSpec.feature "Visitor goes to briefcase" do
     visit powers_path
 
     click_on "Add to Briefcase"
-    click_on "View Briefcase"
+
+    within ('.nav') do
+      click_on "Briefcase"
+    end
+
     click_on "Remove"
 
     expect(current_path).to eq('/briefcase')

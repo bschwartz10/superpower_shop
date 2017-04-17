@@ -22,10 +22,13 @@ RSpec.feature "When a user visits the items index page" do
       expect(page).to have_content("You now have 2 flying powers")
     end
 
-    it "and they click to view briefcase" do
+    it "and they click to briefcase" do
       visit powers_path
       click_on "Add to Briefcase"
-      click_on "View Briefcase"
+
+      within ('.nav') do
+        click_on "Briefcase"
+      end
 
       expect(current_path).to eq("/briefcase")
       expect(page).to have_content("flying")
@@ -40,7 +43,10 @@ RSpec.feature "When a user visits the items index page" do
       visit powers_path
       click_on "Add to Briefcase"
       click_on "Add to Briefcase"
-      click_on "View Briefcase"
+
+      within ('.nav') do
+        click_on "Briefcase"
+      end
 
       expect(page).to have_content("Total: $10")
       expect(page).to have_content("Quantity: 2")
