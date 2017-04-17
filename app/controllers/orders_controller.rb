@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
         @order.update(status: "Cancelled")
       end
     end
-    
+
     redirect_to powers_path
   end
 

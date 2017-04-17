@@ -11,18 +11,18 @@ RSpec.feature "Authenticated user can see abilities" do
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
 
   end
-  xcontext "user can create an abilities order" do
+  context "user can create an abilities order" do
     it "can order" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       visit powers_path
-      within(".power_#{@fly.id}") do
+      within("#power_#{@fly.id}") do
         click_on "Add to Briefcase"
       end
 
       within ('.nav') do
         click_on "Briefcase"
       end
-      
+
       click_on "Checkout Abilities"
       expect(current_path).to eq(order_path(Order.last))
 
@@ -31,7 +31,7 @@ RSpec.feature "Authenticated user can see abilities" do
 
   context "logged in user visits abilities index" do
 
-    xit "and sees past abilities belonging only to them" do
+    it "and sees past abilities belonging only to them" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       order = Order.create!(status: "pending", user_id: @user.id )
       order_power = OrderPower.create(order_id: order.id, power_id: @fly.id)
