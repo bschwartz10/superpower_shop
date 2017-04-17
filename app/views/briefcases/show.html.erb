@@ -27,7 +27,9 @@
       <h4>Subtotal: $<%= power.total_cost %></h4>
     </div>
     <%= button_to 'Remove', briefcase_path(power_id: power.id), class: "btn btn-danger", method: :put %>
+  </div>
 <% end %>
+</div>
 
 <!-- <div class="total">
   <h2> Briefcase Total: $<%#= @briefcase.total_cost %> </h2>
