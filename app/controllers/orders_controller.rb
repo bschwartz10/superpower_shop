@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(user_id: User.find(params[:user_id].to_i).id)
+    order = Order.new(user_id: current_user.id)
     @briefcase.contents.each do |power_id, quantity|
       order.powers << Power.find(power_id)
       order.order_powers.last.power_quantity = quantity
@@ -21,7 +21,11 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    if current_admin?
+      @order = Order.find(params[:id])
+    elsif current_user
+      @order = current_user.orders.find(params[:id])
+    end
     @powers = @order.powers
   end
 

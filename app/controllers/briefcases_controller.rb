@@ -21,20 +21,7 @@ class BriefcasesController < ApplicationController
   end
 
   def alter_quantity
-    type = params[:type]
-    if type == "increase"
-      @briefcase.contents[(params[:power_id].to_s)] += 1
-      redirect_back(fallback_location: "/briefcase")
-    elsif type == "decrease"
-      @briefcase.contents[(params[:power_id].to_s)] -= 1
-      redirect_back(fallback_location: "/briefcase")
-    else
-      redirect_back(fallback_location: "/briefcase")
-      flash[:notice] = "Minimum quantity is 1"
-    end
-    
-    # type = params[:type]
-    # @briefcase.briefcase_power.increase_or_decrease(type)
-    # redirect_back(fallback_location: "/briefcase")
+    @briefcase.increase_or_decrease(params[:type], params[:power_id])
+    redirect_back(fallback_location: "/briefcase")
   end
 end
