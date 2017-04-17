@@ -17,9 +17,7 @@ RSpec.feature "Visitor goes to login page" do
       click_on "Create User"
 
       expect(current_path).to eq('/dashboard')
-      expect(page).to have_text("Logged in as Ken")
-      expect(page).to have_content("ken@example.com")
-      expect(page).to have_content("Ken Lee")
+      expect(page).to have_text(User.last.first_name)
       expect(page).to_not have_link("Login")
       expect(page).to have_content("Logout")
     end

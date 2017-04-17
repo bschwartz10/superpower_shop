@@ -14,7 +14,7 @@ RSpec.feature "User logging out of account" do
       click_on "Log In"
 
       expect(current_path).to eq('/dashboard')
-      expect(page).to have_content "bschwartz@example.com"
+      expect(page).to have_content user.first_name
 
       click_on "Logout"
 

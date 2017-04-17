@@ -22,8 +22,7 @@ RSpec.feature "User goes to edit profile page" do
 
       expect(current_path).to eq('/dashboard')
       expect(page).to have_text("Logged in as Ken")
-      expect(page).to have_content("ken@example.com")
-      expect(page).to have_content("Ken Lee")
+      expect(page).to have_content(user.first_name)
       expect(page).to_not have_link("Login")
       expect(page).to have_content("Logout")
     end
