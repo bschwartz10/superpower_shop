@@ -1,10 +1,13 @@
 require 'rails_helper'
 
 describe "When an admin visits the admin dashboard" do
-  it "they can see a listing of all orders" do
+  before(:each) do
     @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
     category = Category.create(title: "cosmic", slug: "cosmic")
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
+  end
+
+  it "they can see a listing of all orders" do
     order1 = Order.create!(status: "Ordered", user_id: @admin.id )
     order2 = Order.create!(status: "Ordered", user_id: @admin.id )
 
@@ -18,9 +21,6 @@ describe "When an admin visits the admin dashboard" do
 
   end
   it "they can see the count of each status of orders" do
-    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
-    category = Category.create(title: "cosmic", slug: "cosmic")
-    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Ordered", user_id: @admin.id )
     order2 = Order.create!(status: "Paid", user_id: @admin.id )
     order3 = Order.create!(status: "Cancelled", user_id: @admin.id )
@@ -30,7 +30,6 @@ describe "When an admin visits the admin dashboard" do
 
     visit admin_dashboard_path
 
-
     expect(page).to have_content("Ordered Orders: 1")
     expect(page).to have_content("Paid Orders: 1")
     expect(page).to have_content("Cancelled Orders: 1")
@@ -38,11 +37,7 @@ describe "When an admin visits the admin dashboard" do
   end
 
   it "each order is a link that leads to its show page" do
-    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
-    category = Category.create(title: "cosmic", slug: "cosmic")
-    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Ordered", user_id: @admin.id )
-
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
@@ -53,9 +48,6 @@ describe "When an admin visits the admin dashboard" do
   end
 
   it "order status link leads to a page that lists all orders with an ordered status" do
-    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
-    category = Category.create(title: "cosmic", slug: "cosmic")
-    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Ordered", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
@@ -66,9 +58,6 @@ describe "When an admin visits the admin dashboard" do
   end
 
   it "order status link leads to a page that lists all orders with an paid status" do
-    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
-    category = Category.create(title: "cosmic", slug: "cosmic")
-    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Paid", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
@@ -78,9 +67,6 @@ describe "When an admin visits the admin dashboard" do
     expect(page).to have_content(order1.id)
   end
   it "order status link leads to a page that lists all orders with an cancelled status" do
-    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
-    category = Category.create(title: "cosmic", slug: "cosmic")
-    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Cancelled", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
@@ -91,11 +77,8 @@ describe "When an admin visits the admin dashboard" do
   end
 
   it "order status link leads to a page that lists all orders with an completed status" do
-    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
-    category = Category.create(title: "cosmic", slug: "cosmic")
-    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Completed", user_id: @admin.id )
-    
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
     visit admin_dashboard_path
     click_on "Completed Orders"
@@ -104,14 +87,11 @@ describe "When an admin visits the admin dashboard" do
   end
 
   xit "can canceled ordered orders" do
-    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
-    category = Category.create(title: "cosmic", slug: "cosmic")
-    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Ordered", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
     visit admin_dashboard_path
-    
+
     click_on "Ordered Orders"
     expect(page).to have_content "Order ##{order1.id}"
     click_on "Cancel Order"
@@ -119,9 +99,6 @@ describe "When an admin visits the admin dashboard" do
   end
 
   xit "can cancel paid orders" do
-    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
-    category = Category.create(title: "cosmic", slug: "cosmic")
-    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Paid", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
@@ -134,9 +111,6 @@ describe "When an admin visits the admin dashboard" do
   end
 
   xit "can mark ordered order as paid" do
-    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
-    category = Category.create(title: "cosmic", slug: "cosmic")
-    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Ordered", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
@@ -148,9 +122,6 @@ describe "When an admin visits the admin dashboard" do
   end
 
   xit "can mark paid order as complete" do
-    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
-    category = Category.create(title: "cosmic", slug: "cosmic")
-    @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Paid", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
