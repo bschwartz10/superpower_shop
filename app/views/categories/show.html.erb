@@ -1,8 +1,8 @@
 <h1> <%= @category.title %> powers! </h1>
-
+<div class="powers">
   <% @category.powers.each do |power| %>
-  <div class=<%= "power_#{power.id}" %>>
-    <div class="image">
+  <div class="power", id= <%= "power_#{power.id}" %>>
+    <div class="power_image">
       <img src="<%= power.image_url %>" width="50" height="50"/>
     <h1><%= link_to "#{power.title}", power_path(power) %></h1>
     <% if power.status == "active" %>
@@ -13,3 +13,4 @@
   </div>
   </div>
 <% end %>
+</div>
