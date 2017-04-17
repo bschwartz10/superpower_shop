@@ -1,4 +1,14 @@
-<%= @user.email %>
-<%= @user.first_name %> <%= @user.last_name %>
+<h1> <%= current_user.first_name %>'s Profile Page </h1>
 
-<%= link_to "View Briefcase", briefcase_path, class: 'btn btn-primary'%>
+<div class="powers">
+  <% @paid_orders.each do |order| %>
+    <% order.powers.each do |power| %>
+      <div class="power", id= <%= "power_#{power.id}" %>>
+        <div class="power_image">
+          <img src="<%= power.image_url %>" width="50" height="50"/>
+        </div>
+        <h1><%= link_to "#{power.title}", power_path(power) %></h1>
+      </div>
+    <% end %>
+  <% end %>
+</div>

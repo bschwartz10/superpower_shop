@@ -1,6 +1,6 @@
 <div class="powers">
   <% @powers.each do |power| %>
-    <div class="power", id= <%= "power_#{power.id}" %>   >
+    <div class="power", id= <%= "power_#{power.id}" %>>
       <div class="power_image">
         <img src="<%= power.image_url %>" width="50" height="50"/>
       <h1><%= link_to "#{power.title}", power_path(power) %></h1>
@@ -12,6 +12,4 @@
     </div>
     </div>
   <% end %>
-<!-- Briefcase: <%#= @briefcase.total_count %> <%#= button_to "Save Abilities", abilities_path %> -->
-
 </div>

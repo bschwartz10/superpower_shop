@@ -10,13 +10,14 @@ class UsersController < ApplicationController
      session[:user_id] = @user.id
      redirect_to dashboard_path
    else
-     flash[:danger] = "Could not create account"
+     flash[:danger] = "Could not create account because #{@user.errors.full_messages.join(", ")}"
      redirect_to new_user_path
    end
   end
 
   def show
     @user = current_user
+    @paid_orders = current_user.orders.where(status: 'Paid')
   end
 
   def edit
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    
+
     if @user.update(user_params)
       flash[:success] = "Account Updated Successfully!"
       session[:user_id] = @user.id
