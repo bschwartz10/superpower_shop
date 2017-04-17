@@ -58,11 +58,8 @@ describe "When an admin visits the admin dashboard" do
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Ordered", user_id: @admin.id )
 
-
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-
     visit admin_dashboard_path
-
     click_on "Ordered Orders"
 
     expect(page).to have_content(order1.id)
@@ -74,11 +71,8 @@ describe "When an admin visits the admin dashboard" do
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Paid", user_id: @admin.id )
 
-
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-
     visit admin_dashboard_path
-
     click_on "Paid Orders"
 
     expect(page).to have_content(order1.id)
@@ -89,11 +83,8 @@ describe "When an admin visits the admin dashboard" do
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Cancelled", user_id: @admin.id )
 
-
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-
     visit admin_dashboard_path
-
     click_on "Cancelled Orders"
 
     expect(page).to have_content(order1.id)
@@ -104,12 +95,9 @@ describe "When an admin visits the admin dashboard" do
     category = Category.create(title: "cosmic", slug: "cosmic")
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Completed", user_id: @admin.id )
-
-
+    
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-
     visit admin_dashboard_path
-
     click_on "Completed Orders"
 
     expect(page).to have_content(order1.id)
@@ -121,11 +109,9 @@ describe "When an admin visits the admin dashboard" do
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Ordered", user_id: @admin.id )
 
-
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-
     visit admin_dashboard_path
-
+    
     click_on "Ordered Orders"
     expect(page).to have_content "Order ##{order1.id}"
     click_on "Cancel Order"
@@ -138,9 +124,7 @@ describe "When an admin visits the admin dashboard" do
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Paid", user_id: @admin.id )
 
-
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-
     visit admin_dashboard_path
 
     click_on "Paid Orders"
@@ -155,9 +139,7 @@ describe "When an admin visits the admin dashboard" do
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Ordered", user_id: @admin.id )
 
-
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-
     visit admin_dashboard_path
 
     click_on "Ordered Orders"
@@ -171,9 +153,7 @@ describe "When an admin visits the admin dashboard" do
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Paid", user_id: @admin.id )
 
-
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-
     visit admin_dashboard_path
 
     click_on "Paid Orders"
