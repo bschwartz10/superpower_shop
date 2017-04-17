@@ -10,30 +10,33 @@ RSpec.feature "Visitor visits their briefcase page" do
       it "" do
         visit powers_path
 
-        within("power_#{@fly.id}") do
+        within("#power_#{@fly.id}") do
           click_on "Add to Briefcase"
         end
-        within(".power_#{@time_travel.id}") do
+        within("#power_#{@time_travel.id}") do
           click_on "Add to Briefcase"
         end
-        click_on "View Briefcase"
+
+        within ('.nav') do
+          click_on "Briefcase"
+        end
 
         expect(current_path).to eq('/briefcase')
 
-        within(".power_#{@fly.id} .quantity") do
+        within("#power_#{@fly.id}") do
           expect(page).to have_content 1
         end
 
-        within(".power_#{@fly.id}") do
+        within("#power_#{@fly.id}") do
           click_on "+"
         end
 
         expect(current_path).to eq('/briefcase')
 
-        within(".power_#{@fly.id} .quantity") do
+        within("#power_#{@fly.id} .quantity") do
           expect(page).to have_content 2
         end
-        within(".power_#{@fly.id} .subtotal") do
+        within("#power_#{@fly.id} .subtotal") do
           expect(page).to have_content "Subtotal: $10"
         end
 
@@ -46,31 +49,34 @@ RSpec.feature "Visitor visits their briefcase page" do
   context "and decreases the power quantity" do
     it "responds" do
       visit powers_path
-      within(".power_#{@fly.id}") do
+      within("#power_#{@fly.id}") do
         click_on "Add to Briefcase"
         click_on "Add to Briefcase"
       end
-      within(".power_#{@time_travel.id}") do
+      within("#power_#{@time_travel.id}") do
         click_on "Add to Briefcase"
       end
-      click_on "View Briefcase"
+
+      within ('.nav') do
+        click_on "Briefcase"
+      end
 
       expect(current_path).to eq('/briefcase')
 
-      within(".power_#{@fly.id} .quantity") do
+      within("#power_#{@fly.id}") do
         expect(page).to have_content 2
       end
 
-      within(".power_#{@fly.id}") do
+      within("#power_#{@fly.id}") do
         click_on "-"
       end
 
       expect(current_path).to eq('/briefcase')
 
-      within(".power_#{@fly.id} .quantity") do
+      within("#power_#{@fly.id} .quantity") do
         expect(page).to have_content 1
       end
-      within(".power_#{@fly.id} .subtotal") do
+      within("#power_#{@fly.id} .subtotal") do
         expect(page).to have_content "Subtotal: $5"
       end
 

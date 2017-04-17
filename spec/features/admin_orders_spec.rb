@@ -95,7 +95,7 @@ describe "When an admin visits the admin dashboard" do
     category = Category.create(title: "cosmic", slug: "cosmic")
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
     order1 = Order.create!(status: "Completed", user_id: @admin.id )
-    
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
     visit admin_dashboard_path
     click_on "Completed Orders"
@@ -103,7 +103,7 @@ describe "When an admin visits the admin dashboard" do
     expect(page).to have_content(order1.id)
   end
 
-  xit "can canceled ordered orders" do
+  it "can canceled ordered orders" do
     @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
     category = Category.create(title: "cosmic", slug: "cosmic")
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
@@ -111,14 +111,17 @@ describe "When an admin visits the admin dashboard" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
     visit admin_dashboard_path
-    
+
     click_on "Ordered Orders"
-    expect(page).to have_content "Order ##{order1.id}"
+    expect(page).to have_link "Order #{order1.id}"
+
     click_on "Cancel Order"
-    expect(order1.status).to eq("Cancelled")
+    visit '/admin/filter?type=cancelled'
+    expect(page).to have_link "Order #{order1.id}"
+
   end
 
-  xit "can cancel paid orders" do
+  it "can cancel paid orders" do
     @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
     category = Category.create(title: "cosmic", slug: "cosmic")
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
@@ -128,12 +131,13 @@ describe "When an admin visits the admin dashboard" do
     visit admin_dashboard_path
 
     click_on "Paid Orders"
-    expect(page).to have_content "Order ##{order1.id}"
+    expect(page).to have_link "Order #{order1.id}"
     click_on "Cancel Order"
-    expect(order1.status).to eq("Cancelled")
+    visit '/admin/filter?type=cancelled'
+    expect(page).to have_link "Order #{order1.id}"
   end
 
-  xit "can mark ordered order as paid" do
+  it "can mark ordered order as paid" do
     @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
     category = Category.create(title: "cosmic", slug: "cosmic")
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
@@ -144,10 +148,11 @@ describe "When an admin visits the admin dashboard" do
 
     click_on "Ordered Orders"
     click_on "Mark as Paid"
-    expect(order1.status).to eq("Paid")
+    visit '/admin/filter?type=paid'
+    expect(page).to have_link "Order #{order1.id}"
   end
 
-  xit "can mark paid order as complete" do
+  it "can mark paid order as complete" do
     @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
     category = Category.create(title: "cosmic", slug: "cosmic")
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
@@ -158,6 +163,7 @@ describe "When an admin visits the admin dashboard" do
 
     click_on "Paid Orders"
     click_on "Mark as Completed"
-    expect(order1.status).to eq("Completed")
+    visit '/admin/filter?type=completed'
+    expect(page).to have_link "Order #{order1.id}"
   end
 end
