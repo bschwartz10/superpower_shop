@@ -30,13 +30,17 @@ RSpec.feature "User see past order" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
     visit powers_path
-    within(".power_#{@fly.id}") do
+    within(".power") do
       click_on "Add to Briefcase"
     end
-    within(".power_#{@fly.id}") do
+    within(".power") do
       click_on "Add to Briefcase"
     end
-    click_on "View Briefcase"
+
+    within ('.nav') do
+      click_on "Briefcase"
+    end
+
     click_on "Checkout Abilities"
 
     # I should see each item that was order with the quantity and line-item subtotals

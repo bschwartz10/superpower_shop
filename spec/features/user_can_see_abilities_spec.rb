@@ -18,7 +18,11 @@ RSpec.feature "Authenticated user can see abilities" do
       within(".power_#{@fly.id}") do
         click_on "Add to Briefcase"
       end
-      click_on "View Briefcase"
+
+      within ('.nav') do
+        click_on "Briefcase"
+      end
+      
       click_on "Checkout Abilities"
       expect(current_path).to eq(order_path(Order.last))
 

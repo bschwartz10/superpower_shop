@@ -7,7 +7,7 @@ RSpec.feature "visitor goes to root page" do
       visit root_path
 
       expect(page).to have_link "Login"
-      within(".login") do
+      within(".nav") do
         click_on "Login"
       end
 

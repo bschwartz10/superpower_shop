@@ -7,7 +7,7 @@
 
 <div class="powers">
 <% @powers.each do |power| %>
-  <div class= <%= "power power_#{power.id}" %>>
+  <div class="power", id= <%= "power_#{power.id}" %>>
     <h1><%= link_to "#{power.title}", power_path(power) %></h1>
     <div class="power_image_briefcase">
       <img src="<%= power.image_url %>" width="50" height="50"/>
@@ -18,7 +18,7 @@
     <div class="price">
       <h5>Price: $<%= power.price %></h5>
     </div>
-    <div class="quantity">
+    <div class="quantity" %>>
       <h5>Quantity: <%= power.quantity %></h5>
     </div>
     <%= button_to '+', briefcase_path(power_id: power.id, type: "increase"), class: "btn btn-info", method: :patch   %>
