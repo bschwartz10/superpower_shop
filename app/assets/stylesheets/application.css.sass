@@ -37,12 +37,12 @@ a
 html
   height: 100%
   
-body.welcome
+body.login
   background: url(http://www.nicksbuilding.com/Rustic_Exterior_Doors/SPKYcloseup.jpg) no-repeat center center fixed
   -webkit-background-size: cover
   -moz-background-size: cover
   -o-background-size: cover
-  background-size: 100% 100%
+  background-size: cover
   border: solid
   display: -webkit-flex
   display: flex
@@ -50,6 +50,23 @@ body.welcome
   flex-direction: column
   align-items: center
   height: cover
+  
+body.welcome
+  background: url(http://i.imgur.com/Xf253mg.jpg?1) no-repeat center center fixed
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
+  
+  .container
+    display: -webkit-flex
+    display: flex
+    justify-content: center
+  
+    .login_link
+      text-align: center
+      padding: 0px 25px 5px 25px
+      background-color: #2A9134
   
 .login_form
   justify-content: center
@@ -99,15 +116,6 @@ body.welcome
 
 .decrease
   text-align: left
-
-table
-  width: 27%
-  border-spacing: 20px
-  border-collapse: separate
-
-td
-  padding: 10px
-  min-width: 200px
 
 .logout
   color: #A80855
