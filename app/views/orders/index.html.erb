@@ -1,10 +1,10 @@
 <div class="orders">
   <% @orders.each do |order| %>
-    <% unless order.status == "Cancelled" %>  
+    <% unless order.status == "Cancelled" %>
       <h3><%= link_to "Abilities Order ##{order.id}", order_path(order) %></h3>
-      <p>Date Ordered: <%= order.created_at %></p>
+      <p>Date Ordered: <%= order.created_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
     <% else %>
-      <%= "Order #{order.id} was cancelled on #{order.updated_at}" %> </br>
+      <%= "Order #{order.id} was cancelled on #{order.updated_at.strftime("%A, %d %b %Y %l:%M %p")}" %> </br>
     <% end %>
   <% end %>
 </div>
