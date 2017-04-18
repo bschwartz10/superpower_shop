@@ -1,10 +1,13 @@
-<div>
-  <%= form_for :session, url: login_path do |f| %>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <%= f.submit "Log In", class: 'btn btn-success' %>
-  <% end %>
-  <%= link_to "Create Account", new_user_path, class: 'btn btn-success' %>
-</div>
+<body class="container welcome">
+  <div class="login_form">
+    <%= form_for :session, url: login_path do |f| %>
+      <h3 class="email"><%= f.label :email %>
+      <%= f.text_field :email %> </h3></br>
+      <h3 class="password"><%= f.label "What's the secret passssssword??" %>
+      <%= f.password_field :password %> </h3></br>
+      <%= f.submit "Log In", class: 'btn btn-success' %>
+    <% end %>
+    <%= link_to "Create Account", new_user_path, class: 'btn btn-success' %>
+  </div>
+</body>
+
