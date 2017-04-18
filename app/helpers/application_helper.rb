@@ -38,7 +38,7 @@ module ApplicationHelper
      flash.each do |type, message|
        concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(type)} fade in") do
          concat content_tag(:button, 'x'.html_safe, class: "close", data: { dismiss: 'alert' })
-         concat message
+         concat message.html_safe
        end)
      end
      nil
