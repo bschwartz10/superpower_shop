@@ -11,6 +11,22 @@ module ApplicationHelper
          button_to 'Checkout Abilities', orders_path(user_id: current_user.id), class: 'btn btn-primary', id: 'checkout_btn'
       elsif session[:user_id].nil?
         link_to "Login or Create Account to Buy Your Abilities!", login_path, class: 'btn btn-info'
+      end
+   end
+
+   def show_correct_image
+     if @power.image_url != nil
+        @power.image_url
+     else
+        @power.image.url
+     end
+   end
+
+   def index_correct_image(power)
+     if power.image_url != nil
+        power.image_url
+     else
+        power.image.url
      end
    end
 

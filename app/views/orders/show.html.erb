@@ -5,7 +5,7 @@
     <% @powers.each do |power| %>
       <h1> <%= link_to "#{power.title} Power", power_path(power) %> </h1>
       <div class="power image">
-        <img src="<%= power.image_url %>" width="200" height="200"/>
+        <img src="<%= index_correct_image(power) %>" width="200" height="200"/>
       </div>
       <p> <%= power.description %> </p>
       <p> Price: $<%= power.price %> </p>
@@ -18,7 +18,7 @@
     <% unless @order.status == "Completed" || @order.status == "Cancelled" %>
       <% unless @order.status == "Paid" %>
         <%= button_to 'Pay To Complete Order' %>
-      <% end %> 
+      <% end %>
       <%= button_to 'Cancel Order', order_path(@order, type: "cancel"), method: :put %>
     <% end %>
   <% else %>
