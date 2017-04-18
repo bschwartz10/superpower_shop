@@ -18,7 +18,7 @@
     <div class="price">
       <h5>Price: $<%= power.price %></h5>
     </div>
-    <div class="quantity" %>>
+    <div class="quantity" %>
       <h5>Quantity: <%= power.quantity %></h5>
     </div>
     <%= button_to '+', briefcase_path(power_id: power.id, type: "increase"), class: "btn btn-info", method: :patch   %>

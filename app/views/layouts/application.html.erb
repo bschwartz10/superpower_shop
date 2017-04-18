@@ -8,10 +8,8 @@
   </head>
   <body>
     <div class="container">
-    <%= render 'shared/navigation' %>
-      <% flash.each do |type, message| %>
-        <%= content_tag :div, message.html_safe, class: type %>
-      <% end %>
+      <%= render 'shared/navigation' %>
+      <%= flash_messages %>
       <%= yield %>
     </div>
   </body>
