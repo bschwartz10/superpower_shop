@@ -12,9 +12,13 @@
       <p> Quantity: <%= power.order_powers.find_by(order_id: @order.id).power_quantity %> </p>
       <p> Subtotal: $<%= power.order_powers.find_by(order_id: @order.id).power_total %> </p>
     <% end %>
-    Order Total: $<%= @order.total %>
-    Order Status: <%= @order.status %>
-    Order Creation Time: <%= @order.created_at %>
+    <h4>Order Total: $<%= @order.total %></h4>
+    <h4>Order Status: <%= @order.status %></h4>
+    <h4>Order Placed: <%= @order.created_at.strftime("%A, %d %b %Y %l:%M %p") %></h4>
+    <% if current_admin? %>
+    <h4>Ordered By: <%= @order.user.first_name%> <%= @order.user.last_name %></h4>
+    <h4>Shipping Address: <%= @order.user.address%></h4>
+    <% end %>
     <% unless @order.status == "Completed" || @order.status == "Cancelled" %>
       <% unless @order.status == "Paid" %>
         <%= button_to 'Pay To Complete Order' %>
@@ -22,7 +26,7 @@
       <%= button_to 'Cancel Order', order_path(@order, type: "cancel"), method: :put %>
     <% end %>
   <% else %>
-    Your Order was cancelled on <%= @order.updated_at %>
+    Your Order was cancelled on <%= @order.updated_at.strftime("%A, %d %b %Y %l:%M %p") %>
   <% end %>
 
 </div>

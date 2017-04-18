@@ -6,7 +6,9 @@
         <ul class="dropdown-menu">
           <li class="all_orders"><%= link_to "All Powers", powers_path %></li>
           <li><%= link_to "Power Categories", categories_path %></li>
+          <% if current_admin? %>
           <li><%= link_to "Create New Power", new_admin_power_path %></li>
+          <% end %>
         </ul>
       </li>
       <li><%= link_to "Briefcase (#{@briefcase.total_count})", briefcase_path %></li>
@@ -14,7 +16,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Orders<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li class="all_orders"><%= link_to "All Orders", orders_path %></li>
+            <li class="all_orders"><%= link_to "All Orders", admin_dashboard_path %></li>
             <li><a href="/admin/filter?type=ordered">Ordered Orders</a></li>
             <li><a href="/admin/filter?type=paid">Paid Orders</a></li>
             <li><a href="/admin/filter?type=cancelled">Cancelled Orders</a></li>

@@ -46,7 +46,7 @@ RSpec.feature "User see past order" do
     # I should see each item that was order with the quantity and line-item subtotals
     expect(page).to have_link("flying Power")
     expect(page).to have_content("Ordered")
-    expect(page).to have_content(Order.last.created_at)
+    expect(page).to have_content(Order.last.created_at.strftime("%A, %d %b %Y %l:%M %p"))
     expect(page).to have_content("Quantity: 2")
     expect(page).to have_content("Subtotal: $10")
     expect(page).to have_content("Total: $10")

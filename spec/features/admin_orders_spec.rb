@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "When an admin visits the admin dashboard" do
   before(:each) do
-    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
+    @admin = User.create(first_name: 'Brett', last_name: 'Schwartz', address: '1337 17th street', email: "penelope@penelope1.com", password: "boom", role: 1)
     category = Category.create(title: "cosmic", slug: "cosmic")
     @fly = category.powers.create!(title: "flying", description: "You will be able to fly!", price: 5, image_url: "http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png")
   end
@@ -37,14 +37,30 @@ describe "When an admin visits the admin dashboard" do
   end
 
   it "each order is a link that leads to its show page" do
-    order1 = Order.create!(status: "Ordered", user_id: @admin.id )
-
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
-    visit admin_dashboard_path
+    visit powers_path
 
-    click_on "Order ##{order1.id}"
-    expect(current_path).to eq(order_path(order1))
+    click_on "Add to Briefcase"
+
+  within('.nav') do
+    click_on "Briefcase"
+  end
+
+    click_on "Checkout Abilities"
+
+
+    expect(current_path).to eq(order_path(Order.last))
+    expect(page).to have_content(Order.last.created_at.strftime("%A, %d %b %Y %l:%M %p"))
+    expect(page).to have_content('Brett')
+    expect(page).to have_content('Schwartz')
+    expect(page).to have_content('1337 17th street')
+    expect(page).to have_link('flying')
+    expect(page).to have_content('Price: $5')
+    expect(page).to have_content('Quantity: 1')
+    expect(page).to have_content('Subtotal: $5')
+    expect(page).to have_content('Order Total: $5')
+    expect(page).to have_content('Order Status: Ordered')
   end
 
   it "order status link leads to a page that lists all orders with an ordered status" do
