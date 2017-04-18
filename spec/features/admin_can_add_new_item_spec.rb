@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.feature "Admin can add new power to powers list" do
   scenario "when on powers page" do
     @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
+    category = Category.create(title: "cosmic", slug: "cosmic")
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
     visit admin_dashboard_path
@@ -14,7 +16,8 @@ RSpec.feature "Admin can add new power to powers list" do
     fill_in "power[title]", with: "Horrendous Burp"
     fill_in "power[description]", with: "Knee buckling stench emits from stomach"
     fill_in "power[price]", with: 2
-    # fill_in "power[image]", with: 
+    select "cosmic", :from => "power[category_id]"
+    # fill_in "power[image]", with:
     click_on "Create Power"
 
     expect(page).to have_content("Horrendous Burp")
