@@ -31,7 +31,11 @@
     padding: 9px 9px
 
 body
-  background-image: radial-gradient(circle at top left, white, #6CF5CC, #017BC4, #6CF5CC, white) // #F9BD20, #CA0000, #960202 
+  background: radial-gradient(circle at top left, white, #6CF5CC, #017BC4, #6CF5CC, white) // #F9BD20, #CA0000, #960202 
+  -webkit-background-size: cover
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: cover
   padding-top: 70px
   color: #2D2D2A
   font-family: monospace
@@ -39,18 +43,20 @@ body
 h1
   font-size: 6vw
   text-align: center
+  font-weight: bold
   
 h2
   font-size: 3vw
   color: #2D2D2A
   text-align: center
 
-a:not(.navbar-default)
-  color: #1A1F16
-  mix-blend-mode: difference
+a:not(.btn)
+  color: #6CF5CC
+  font-weight: bold
+  text-shadow: -1px -1px 0 #3D69B7, 1px -1px 0 #3D69B7, -1px 1px 0 #3D69B7, 1px 1px 0 #3D69B7
   
 .navbar-default
-  a
+  a:nth-child(n)
     color: #6CF5CC
   
 body.login
@@ -75,17 +81,14 @@ body.login
     justify-content: space-around
     align-items: center
   
-  h4.email
+  h4.login_label
     color: white
     padding: 6px
     padding-bottom: 20px
     text-align: center
     
-  h4.password
-    color: white
-    padding: 6px
-    padding-bottom: 20px
-    text-align: center
+    .field
+      color: black
 
 body.welcome
   background: url(http://i.imgur.com/Xf253mg.jpg?1) no-repeat center center fixed
@@ -108,15 +111,27 @@ body.welcome
     background-color: #6CF5CC
     padding: 4px
 
+.powers_show
+  display: flex
+  justify-content: center
+  
+  .power_show
+    margin: 20px
+    padding: 30px
+    border: solid
+    width: 600px
+    text-align: center
+
 .powers
-  // padding: 10px 20px 100px 20px
   display: flex
   flex-wrap: wrap
   justify-content: space-around
 
   .power
     margin: 20px
-    padding: 30px
+    padding: 10px
+    padding-top: 20px
+    padding-bottom: 20px
     border: solid
     width: 27%
     text-align: center
@@ -133,17 +148,18 @@ body.welcome
     width: 15%
     text-align: center
 
-    // .power_image_briefcase
-    //   height: 20%
-    // 
-    // .power_image
-    //   width: 100%
-
     .btn-info
       bottom: 10%
       left: 20%
 
-.all_orders
+.nav_index
+  background-color: #3D69B7
+  a:link
+    color: #6CF5CC
+  a:visited
+    color: #6CF5CC
+    
+.nav_single  
   background-color: #1A1F16
   a:link
     color: #6CF5CC
@@ -156,10 +172,6 @@ body.welcome
 .decrease
   text-align: left
 
-// .login_link
-//   a
-//     font-family: "8-BIT WONDER"
-
 .btn-primary
   background-color: #2A9134
   border-radius: 100
@@ -171,7 +183,8 @@ body.welcome
 .btn-info
   background-color: #6CF5CC
   color: #3D69B7
-  border-color: #2A9134
+  border-color: #3ead86
+    
 .btn-danger
   border: solid
   border-color: #ffbca1

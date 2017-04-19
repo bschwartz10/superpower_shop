@@ -1,13 +1,13 @@
 <body class="container login">
   <div class="login_form">
     <%= form_for :session, url: login_path do |f| %>
-      <h4 class="email"><%= f.label :email %></br>
-      <%= f.text_field :email %></br></br>
+      <h4 class="login_label"><%= f.label :email %></br>
+      <%= f.text_field :email, class: "field" %></br></br>
       <div class="create_account">
         <%= link_to "create a secret identity", new_user_path, class: 'btn btn-primary' %>
       </div></h4></br>
-      <h4 class="password"><%= f.label "Secret Password???" %></br>
-      <%= f.password_field :password %></br></br>
+      <h4 class="login_label"><%= f.label "Secret Password???" %></br>
+      <%= f.password_field :password, class: "field" %></br></br>
       <%= f.submit "enter at your own risk", class: 'btn btn-primary' %></h4>
     <% end %>
   </div>
