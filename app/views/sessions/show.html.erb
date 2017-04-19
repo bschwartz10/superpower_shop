@@ -1,5 +1,7 @@
-<% unless current_user || current_admin? %>
-<div class="login">
-  <%= link_to "Login", login_path %>
-</div>
-<% end %>
+<body class="container welcome">
+  <% unless current_user || current_admin? %>
+  <div class="login_link">
+    <%= link_to "enter if you dare.", login_path, class: "btn-lg btn-primary" %>
+  </div>
+  <% end %>
+</body>
