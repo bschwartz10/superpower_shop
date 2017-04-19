@@ -29,8 +29,6 @@
         <%= f.text_field :image %>
       </div>
     </div>
-    <!-- <%#= f.label :image, "Attach an Image" %></br>
-    <%#= f.file_field :image %> -->
 
     <div class = "form-group">
       <%= f.label :category, :class => "col-sm-2 control-label" %>
@@ -39,9 +37,6 @@
       </div>
     </div>
     
-    <!-- <%#= f.label :category %>
-    <%#= f.collection_select :category_id, Category.order(:title), :id, :title, include_blank: true %> -->
-
     <div class = "form-actions">
       <%= f.submit "Create Power", class: 'btn btn-primary' %>
     </div>
