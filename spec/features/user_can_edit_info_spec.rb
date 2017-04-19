@@ -17,14 +17,14 @@ RSpec.feature "User goes to edit profile page" do
       fill_in "user[password_confirmation]", with: "123abc"
 
       within('.account_form') do
-        click_on "Update User"
+        click_on "create your secret identity"
       end
 
       expect(current_path).to eq('/dashboard')
       expect(page).to have_text("Logged in as Ken")
       expect(page).to have_content(user.first_name)
-      expect(page).to_not have_link("Login")
-      expect(page).to have_content("Logout")
+      expect(page).to_not have_link("Put on Your Mask")
+      expect(page).to have_content("Return to Human")
     end
   end
 end

@@ -109,11 +109,11 @@ describe "When an admin visits the admin dashboard" do
     visit admin_dashboard_path
 
     click_on "Ordered Orders"
-    expect(page).to have_link "Order #{order1.id}"
+    expect(page).to have_link "Order ##{order1.id}"
 
     click_on "Cancel Order"
     visit '/admin/filter?type=cancelled'
-    expect(page).to have_link "Order #{order1.id}"
+    expect(page).to have_link "Order ##{order1.id}"
 
   end
 
@@ -124,10 +124,10 @@ describe "When an admin visits the admin dashboard" do
     visit admin_dashboard_path
 
     click_on "Paid Orders"
-    expect(page).to have_link "Order #{order1.id}"
+    expect(page).to have_link "Order ##{order1.id}"
     click_on "Cancel Order"
     visit '/admin/filter?type=cancelled'
-    expect(page).to have_link "Order #{order1.id}"
+    expect(page).to have_link "Order ##{order1.id}"
   end
 
 
@@ -138,9 +138,9 @@ describe "When an admin visits the admin dashboard" do
     visit admin_dashboard_path
 
     click_on "Ordered Orders"
-    click_on "Mark as Paid"
+    click_on "Mark Paid"
     visit '/admin/filter?type=paid'
-    expect(page).to have_link "Order #{order1.id}"
+    expect(page).to have_link "Order ##{order1.id}"
   end
 
   it "can mark paid order as complete" do
@@ -150,8 +150,8 @@ describe "When an admin visits the admin dashboard" do
     visit admin_dashboard_path
 
     click_on "Paid Orders"
-    click_on "Mark as Completed"
+    click_on "Mark Completed"
     visit '/admin/filter?type=completed'
-    expect(page).to have_link "Order #{order1.id}"
+    expect(page).to have_link "Order ##{order1.id}"
   end
 end

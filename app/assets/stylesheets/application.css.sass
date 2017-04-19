@@ -16,9 +16,6 @@
 
 @import "bootstrap-sprockets"
 @import "bootstrap"
-// @font-face 
-//   font-family: "8-BIT WONDER"
-//   src: url(/assets/8-BIT-WONDER.ttf) format("truetype")
 
 .navbar-default
   background-color: #1A1F16
@@ -34,19 +31,27 @@
     padding: 9px 9px
 
 body
-  background-image: linear-gradient(to bottom right, #3D69B7, #2A9134)
+  background-image: radial-gradient(circle at top left, white, #6CF5CC, #017BC4, #6CF5CC, white) // #F9BD20, #CA0000, #960202 
   padding-top: 70px
   color: #2D2D2A
+  font-family: monospace
 
+h1
+  font-size: 6vw
+  text-align: center
+  
 h2
+  font-size: 3vw
   color: #2D2D2A
   text-align: center
 
-a
-  color: #6CF5CC
+a:not(.navbar-default)
+  color: #1A1F16
+  mix-blend-mode: difference
   
-// html
-//   height: 100%
+.navbar-default
+  a
+    color: #6CF5CC
   
 body.login
   background: url(http://www.nicksbuilding.com/Rustic_Exterior_Doors/SPKYcloseup.jpg) no-repeat center center fixed
@@ -59,6 +64,9 @@ body.login
   padding-top: 1px
   display: flex
   justify-content: center
+  
+  a
+    color: #6CF5CC
 
 .login_form
   form
@@ -90,6 +98,9 @@ body.welcome
     display: -webkit-flex
     display: flex
     justify-content: center
+    
+  a
+    color: #6CF5CC
 
 .alert
   a
@@ -109,6 +120,18 @@ body.welcome
     border: solid
     width: 27%
     text-align: center
+    
+    h1
+      text-align: center
+      font-weight: bold
+      font-size: 2.4vw
+  
+  .order
+    margin: 10px
+    padding: 15px
+    border: solid
+    width: 15%
+    text-align: center
 
     // .power_image_briefcase
     //   height: 20%
@@ -126,11 +149,6 @@ body.welcome
     color: #6CF5CC
   a:visited
     color: #6CF5CC
-
-//
-// .total
-//   color: #2A9134
-//   text-align: center
 
 .checkout_button_or_sign_up
   text-align: center
@@ -154,10 +172,13 @@ body.welcome
   background-color: #6CF5CC
   color: #3D69B7
   border-color: #2A9134
+.btn-danger
+  border: solid
+  border-color: #ffbca1
+  color: #ffbca1
 
 .category_title
   text-align: center
-  font-family: monospace
   padding: 50px
   h1
     font-size: 70px

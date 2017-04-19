@@ -4,11 +4,11 @@
       <h4 class="email"><%= f.label :email %></br>
       <%= f.text_field :email %></br></br>
       <div class="create_account">
-        <%= link_to "create account", new_user_path, class: 'btn btn-success' %>
+        <%= link_to "create a secret identity", new_user_path, class: 'btn btn-primary' %>
       </div></h4></br>
       <h4 class="password"><%= f.label "Secret Password???" %></br>
       <%= f.password_field :password %></br></br>
-      <%= f.submit "enter at your own risk", class: 'btn btn-success' %></h4>
+      <%= f.submit "enter at your own risk", class: 'btn btn-primary' %></h4>
     <% end %>
   </div>
 </body>
