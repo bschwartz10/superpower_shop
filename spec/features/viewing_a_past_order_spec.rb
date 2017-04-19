@@ -4,6 +4,7 @@ RSpec.feature "User see past order" do
   before(:each) do
     @user = User.create(first_name: "v",
                        last_name: "v",
+                       address: "43 turing lane",
                        email: "pepe@pepe.com",
                        password: "password"
                        )

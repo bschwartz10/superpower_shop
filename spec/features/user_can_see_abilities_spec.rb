@@ -4,6 +4,7 @@ RSpec.feature "Authenticated user can see abilities" do
   before(:each) do
     @user = User.create(first_name: "v",
                        last_name: "v",
+                       address: '34 turing lane',
                        email: "pepe@pepe.com",
                        password: "password"
                        )

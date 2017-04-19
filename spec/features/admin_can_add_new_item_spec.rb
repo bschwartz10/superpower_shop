@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Admin can add new power to powers list" do
   scenario "when on powers page" do
-    @admin = User.create(email: "penelope@penelope1.com", password: "boom", role: 1)
+    @admin = User.create(first_name: 'brett', last_name: 'schwartz', address: '444 turing lane', email: "penelope@penelope1.com", password: "boom", role: 1)
     category = Category.create(title: "cosmic", slug: "cosmic")
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
