@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "User goes to edit profile page" do
   context "and can edit credentials" do
     it "edits account" do
-      user = User.create(first_name: "brett", last_name: "schwartz", email: "bschwartz@example.com", password: "password", password_confirmation: "password")
+      user = User.create(first_name: "brett", last_name: "schwartz", address: '34 turing lane', email: "bschwartz@example.com", password: "password", password_confirmation: "password")
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit root_path
