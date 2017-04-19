@@ -8,7 +8,7 @@ RSpec.feature "admin logs in" do
     visit login_path
     fill_in "Email", with: "penelope@penelope1.com"
     fill_in "session_password", with: "boom"
-    click_on "Put on Your Mask"
+    click_on "enter at your own risk"
     expect(current_path).to eq(admin_dashboard_path)
   end
 end
