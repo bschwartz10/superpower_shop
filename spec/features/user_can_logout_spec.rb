@@ -4,7 +4,7 @@ RSpec.feature "User logging out of account" do
   context "when clicking log out" do
     scenario "successfully logs out" do
 
-      user = User.create(first_name: "brett", last_name: "schwartz", email: "bschwartz@example.com", password: "password", password_confirmation: "password")
+      user = User.create(first_name: "brett", last_name: "schwartz", address: '34 turing lane', email: "bschwartz@example.com", password: "password", password_confirmation: "password")
 
       visit login_path
 

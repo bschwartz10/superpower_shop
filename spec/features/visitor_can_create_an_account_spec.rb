@@ -10,6 +10,7 @@ RSpec.feature "Visitor goes to login page" do
 
       fill_in "user[first_name]", with: "Ken"
       fill_in "user[last_name]", with: "Lee"
+      fill_in "user[address]", with: "34 turing lane"
       fill_in "user[email]", with: "ken@example.com"
       fill_in "user[password]", with: "123abc"
       fill_in "user[password_confirmation]", with: "123abc"
