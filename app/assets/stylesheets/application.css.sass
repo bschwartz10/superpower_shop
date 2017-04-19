@@ -16,14 +16,25 @@
 
 @import "bootstrap-sprockets"
 @import "bootstrap"
+// @font-face 
+//   font-family: "8-BIT WONDER"
+//   src: url(/assets/8-BIT-WONDER.ttf) format("truetype")
 
 .navbar-default
   background-color: #1A1F16
   color: #2A9134
   font-weight: bold
+  
+.nav-tabs
+  border: none
+  
+.navbar-right
+  .btn-primary
+    margin: 0px 0px
+    padding: 9px 9px
 
 body
-  background-color: #3D69B7
+  background-image: linear-gradient(to bottom right, #3D69B7, #2A9134)
   padding-top: 70px
   color: #2D2D2A
 
@@ -34,8 +45,8 @@ h2
 a
   color: #6CF5CC
   
-html
-  height: 100%
+// html
+//   height: 100%
   
 body.login
   background: url(http://www.nicksbuilding.com/Rustic_Exterior_Doors/SPKYcloseup.jpg) no-repeat center center fixed
@@ -43,14 +54,31 @@ body.login
   -moz-background-size: cover
   -o-background-size: cover
   background-size: cover
-  border: solid
-  display: -webkit-flex
-  display: flex
-  -webkit-flex-direction: column
-  flex-direction: column
-  align-items: center
-  height: cover
   
+.create_account
+  padding-top: 1px
+  display: flex
+  justify-content: center
+
+.login_form
+  form
+    display: flex
+    height: 500px
+    justify-content: space-around
+    align-items: center
+  
+  h4.email
+    color: white
+    padding: 6px
+    padding-bottom: 20px
+    text-align: center
+    
+  h4.password
+    color: white
+    padding: 6px
+    padding-bottom: 20px
+    text-align: center
+
 body.welcome
   background: url(http://i.imgur.com/Xf253mg.jpg?1) no-repeat center center fixed
   -webkit-background-size: cover
@@ -62,19 +90,6 @@ body.welcome
     display: -webkit-flex
     display: flex
     justify-content: center
-  
-    .login_link
-      text-align: center
-      padding: 0px 25px 5px 25px
-      background-color: #2A9134
-  
-.login_form
-  justify-content: center
-  .email 
-    align-self: flex-start
-    
-  .password
-    margin-left: auto
 
 .alert
   a
@@ -83,7 +98,7 @@ body.welcome
     padding: 4px
 
 .powers
-  padding: 10px 20px 100px 20px
+  // padding: 10px 20px 100px 20px
   display: flex
   flex-wrap: wrap
   justify-content: space-around
@@ -95,11 +110,11 @@ body.welcome
     width: 27%
     text-align: center
 
-    .power_image_briefcase
-      height: 20%
-
-    .power_image
-      width: 100%
+    // .power_image_briefcase
+    //   height: 20%
+    // 
+    // .power_image
+    //   width: 100%
 
     .btn-info
       bottom: 10%
@@ -123,16 +138,15 @@ body.welcome
 .decrease
   text-align: left
 
-.logout
-  color: #A80855
-
-.login
-  background-color: #2A9134
+// .login_link
+//   a
+//     font-family: "8-BIT WONDER"
 
 .btn-primary
   background-color: #2A9134
   border-radius: 100
   color: #6CF5CC
+  border: solid
   border-color: #6CF5CC
 .btn-success
   background-color: #2A9134

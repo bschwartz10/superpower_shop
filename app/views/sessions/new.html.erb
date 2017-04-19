@@ -1,13 +1,15 @@
 <body class="container login">
   <div class="login_form">
     <%= form_for :session, url: login_path do |f| %>
-      <h3 class="email"><%= f.label :email %>
-      <%= f.text_field :email %> </h3></br>
-      <h3 class="password"><%= f.label "What's the secret passssssword??" %>
-      <%= f.password_field :password %> </h3></br>
-      <%= f.submit "Log In", class: 'btn btn-success' %>
+      <h4 class="email"><%= f.label :email %></br>
+      <%= f.text_field :email %></br></br>
+      <div class="create_account">
+        <%= link_to "create account", new_user_path, class: 'btn btn-success' %>
+      </div></h4></br>
+      <h4 class="password"><%= f.label "Secret Password???" %></br>
+      <%= f.password_field :password %></br></br>
+      <%= f.submit "enter at your own risk", class: 'btn btn-success' %></h4>
     <% end %>
-    <%= link_to "Create Account", new_user_path, class: 'btn btn-success' %>
   </div>
 </body>
 
