@@ -1,13 +1,17 @@
-<div class= <%= "@power_#{@power.id}" %>>
-  <h1> <%= @power.title %> </h1>
-  <div class="power image">
-    <img src="<%= show_correct_image %>" width="400" height="400"/>
+<div class= <%= "powers_show @power_#{@power.id}" %>>
+  <div class="power_show">
+    <h1> <%= @power.title %> </h1>
+    </br>
+    <div class="power_image">
+      <img src="<%= show_correct_image %>" width="400" height="400"/>
+    </div>
+    </br>
+    <h2> Description: <%= @power.description %> </h2>
+    <h2> Price: $<%= @power.price %> </h2></br>
+    <% if @power.status == "active" %>
+      <%= button_to "Add to Briefcase", briefcases_path(power_id: @power.id), class: "btn-lg btn-info" %>
+    <% else %>
+      <h3>Item Retired</h3>
+    <% end %>
   </div>
-  <p> Description: <%= @power.description %> </p>
-  <p> Price: $<%= @power.price %> </p>
-<% if @power.status == "active" %>
-  <%= button_to "Add to Briefcase", briefcases_path(power_id: @power.id), class: "btn btn-info" %>
-<% else %>
-  <h3>Item Retired</h3>
-<% end %>
 </div>

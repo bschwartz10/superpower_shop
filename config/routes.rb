@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy'
+  get '/pay', to: 'sessions#pay'
 
   resources :users, only: [:new, :create, :edit, :update]
 
@@ -25,4 +26,5 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show, :create, :update]
   get '/categories', to: 'categories#index'
   get '/:category', to: 'categories#show', as: 'category'
+  
 end
