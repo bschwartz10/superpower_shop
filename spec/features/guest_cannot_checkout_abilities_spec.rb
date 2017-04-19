@@ -51,7 +51,7 @@ RSpec.feature "checkout abilities" do
         click_on "Briefcase"
       end
       click_on("Login or Create Account to Buy Your Abilities!")
-      click_on "Create Account"
+      click_on "create a secret identity"
 
       fill_in "user[first_name]", with: "Ken"
       fill_in "user[last_name]", with: "Lee"
@@ -59,15 +59,15 @@ RSpec.feature "checkout abilities" do
       fill_in "user[password]", with: "123abc"
       fill_in "user[password_confirmation]", with: "123abc"
 
-      click_on "Create User"
+      click_on "create your secret identity"
       visit briefcase_path
 
       expect(page).to have_content("flying")
       expect(page).to have_content("Quantity: 1")
 
-      click_on "Logout"
-      expect(page).to have_content("Login")
-      expect(page).to_not have_content("Logout")
+      click_on "Return to Human"
+      expect(page).to have_content("Put on Your Mask")
+      expect(page).to_not have_content("Return to Human")
 
     end
     it 'user clicks checkout and the order is placed' do

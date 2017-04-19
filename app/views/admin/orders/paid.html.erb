@@ -1,8 +1,11 @@
-<h1>Paid Orders</h1>
+<h1 class="big">Paid Orders</h1>
 
-
+<div class="powers">
 <% @orders.each do |order| %>
-  <p><%= link_to "Order #{order.id}", order_path(order) %> was paid on <%= order.updated_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
-  <%= button_to 'Cancel Order', order_path(order, type: "cancel"), method: :put %>
-  <%= button_to 'Mark as Completed', order_path(order, type: "complete"), method: :put %>
+  <div class = "power">
+    <p><%= link_to "Order ##{order.id}", order_path(order) %> was paid on <%= order.updated_at.strftime("%A, %d %b %Y %l:%M %p") %></p>
+    <p><%= button_to 'Mark Completed', order_path(order, type: "complete"), class: "btn btn-primary", method: :put %></p>
+    <%= button_to 'Cancel Order', order_path(order, type: "cancel"), class: "btn btn-danger", method: :put %>
+  </div>
 <% end %>
+</div>

@@ -11,12 +11,12 @@ RSpec.feature "User logging out of account" do
       fill_in "session[email]", with: user.email
       fill_in "session[password]", with: "password"
 
-      click_on "Log In"
+      click_on "enter at your own risk"
 
       expect(current_path).to eq('/dashboard')
       expect(page).to have_content user.first_name
 
-      click_on "Logout"
+      click_on "Return to Human"
 
       expect(current_path).to eq(login_path)
 

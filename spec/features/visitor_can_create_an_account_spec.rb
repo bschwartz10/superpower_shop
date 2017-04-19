@@ -6,7 +6,7 @@ RSpec.feature "Visitor goes to login page" do
 
       visit '/login'
 
-      click_on "Create Account"
+      click_on "create a secret identity"
 
       fill_in "user[first_name]", with: "Ken"
       fill_in "user[last_name]", with: "Lee"
@@ -14,12 +14,12 @@ RSpec.feature "Visitor goes to login page" do
       fill_in "user[password]", with: "123abc"
       fill_in "user[password_confirmation]", with: "123abc"
 
-      click_on "Create User"
+      click_on "create your secret identity"
 
       expect(current_path).to eq('/dashboard')
       expect(page).to have_text(User.last.first_name)
-      expect(page).to_not have_link("Login")
-      expect(page).to have_content("Logout")
+      expect(page).to_not have_link("Become a Hero")
+      expect(page).to have_content("Return to Human")
     end
   end
 end

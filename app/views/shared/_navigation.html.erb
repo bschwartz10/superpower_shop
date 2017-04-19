@@ -29,7 +29,7 @@
         <li> <%= link_to "Orders", orders_path %></li>
       <% end %>
       <% if current_user %>
-        <li class="navbar-right logout"> <%= link_to "Logout", login_path, method: :delete %></li>
+        <li class="navbar-right logout"> <%= link_to "Return to Human", login_path, method: :delete %></li>
         <li class="navbar-right dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "Logged in as #{current_user.first_name}" %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -38,7 +38,7 @@
           </ul>
         </li>
       <% else %>
-        <li class="navbar-right login"> <%= link_to "Login", login_path, class: "btn btn-primary" %></li>
+        <li class="navbar-right login"> <%= link_to "Put on Your Mask", login_path, class: "btn btn-primary" %></li>
       <% end %>
 
     </ul>
