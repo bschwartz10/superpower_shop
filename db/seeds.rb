@@ -14,11 +14,9 @@
 #     puts "Created #{category.powers[num].title}"
 #   end
 # end
-
 street_level = Category.create(title: 'street level')
 planetary = Category.create(title: 'planetary')
 cosmic = Category.create(title: 'cosmic')
-
 street_level.powers.create!(title: 'Perfect Nails', description: 'Tired of chipped nails? With this superpower you will have indestructible nails!', price: 2, image: File.new(Rails.root + "app/assets/images/perfect_nails.jpg"), status: "active")
 street_level.powers.create!(title: 'Dog Walker', description: 'Tired of walking your dog everyday? With this superpower your dog will gladly walk itself!', price: 10, image: File.new(Rails.root + "app/assets/images/dog_walker.jpg"), status: "active")
 street_level.powers.create!(title: 'Impervious to Tongue Burn', description: 'Never again will you burn your tounge on hot coffee of pizza!', price: 1, image: File.new(Rails.root + "app/assets/images/tongue_fire.jpg"), status: "active")
