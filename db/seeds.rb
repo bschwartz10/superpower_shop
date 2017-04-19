@@ -1,7 +1,7 @@
-# require 'database_cleaner'
-#
-# DatabaseCleaner.strategy = :truncation
-# DatabaseCleaner.clean
+require 'database_cleaner'
+
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.clean
 
 # categories = ["street level", "planetary", "cosmic"]
 # urls = ["http://www.pngall.com/wp-content/uploads/2017/03/Peter-Pan-Free-Download-PNG.png", "http://www.toonsup.com/users/j/java/time_travel_100417_1424.jpg", "https://sparketh.com/wp-content/uploads/2015/08/Kid-super-power-881x588.jpg", "http://blog.scribd.com/wp-content/uploads/2016/03/superhero.png", "http://quizsocial.com/quimg/superpower/results/2.jpg","http://usa.chinadaily.com.cn/weekly/img/attachement/jpg/site181/20120406/00221917e13e10e8845b3e.jpg"]
@@ -36,7 +36,7 @@ planetary.powers.create!(title: 'Levitation', description: "Leviatate freely aro
 planetary.powers.create!(title: 'Super Speed', description: "Run faster than Usian Bolt!", price: 120, image_url: 'https://static.gigwise.com/gallery/8178599_dash.jpg', status: "active")
 planetary.powers.create!(title: 'flying', description: "The best power ever!", price: 230, image_url: 'http://www.hooch.net/wp-content/uploads/sites/2/2017/01/how-would-life-be-better-as-a-cartoon.jpg', status: "active")
 planetary.powers.create!(title: 'Breathe Under Water', description: "Swim with the fishes", price: 180, image_url: 'http://cdn.inquisitr.com/wp-content/uploads/2014/04/Breathe-Underwater-Injectable-Oxygen-Particle-May-Make-Dream-Reality.jpg', status: "active")
-planetary.powers.create!(title: 'Change Street Lights', description: "Never wait for a red light again!", price: 380, image_url: 'https://cdn.pixabay.com/photo/2013/11/10/10/42/traffic-lights-208253_960_720.jpg', status: "active")
+planetary.powers.create!(title: 'Change Street Lights', description: "Never wait for a red light again!", price: 380, image_url: 'http://www.iaapbahamas.com/images/ak3.picdn.net/shutterstock/videos/3568025/preview/stock-footage-street-light-close-up-during-the-day-changing-from-green-to-yellow-to-red-and-then-back-again-in-a.jpg', status: "active")
 planetary.powers.create!(title: 'Clairvoyance', description: "Be able to see the future!", price: 230, image_url: 'http://cdn.images.express.co.uk/img/dynamic/106/590x/secondary/royalbaby-278091.jpg', status: "active")
 planetary.powers.create!(title: 'Wall Crawling', description: "Climb up building like Spiderman!", price: 430, image_url: 'https://i.ytimg.com/vi/B76ysGuyi7M/maxresdefault.jpg', status: "active")
 planetary.powers.create!(title: 'Molecular Dissipation', description: "Chemistry!", price: 530, image_url: 'https://my.vanderbilt.edu/williamfrench/files/2012/08/junctions-only-650x334.jpg', status: "active")
