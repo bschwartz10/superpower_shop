@@ -42,5 +42,4 @@ class OrdersController < ApplicationController
       redirect_to powers_path
     end
   end
-
 end
