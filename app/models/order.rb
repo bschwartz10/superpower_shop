@@ -24,4 +24,22 @@ class Order < ActiveRecord::Base
   def updated_time
     updated_at.strftime("%A, %d %b %Y %l:%M %p")
   end
+  
+  def self.type_count(type)
+    where(status: type).pluck(:status).count
+  end
+  
+  def update_status(type)
+    if type == "cancel"
+      update(status: "Cancelled")
+    elsif type == "pay"
+      update(status: "Paid")
+    elsif type == "complete"
+      update(status: "Completed")
+    end
+  end
+  
+  def update_status_restricted
+    update(status: "Cancelled")
+  end
 end

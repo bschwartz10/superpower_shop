@@ -1,9 +1,9 @@
 <h1>Admin Dashboard</h1>
 
-<h2><div><%= link_to "Ordered Orders:", admin_filter_path(type: "ordered") %> <%= @ordered_orders_count %></div> </h2>
-<h2><%= link_to "Paid Orders:", admin_filter_path(type: "paid") %> <%= @paid_orders_count %> </h2>
-<h2><%= link_to "Cancelled Orders:", admin_filter_path(type: "cancelled") %> <%= @cancelled_orders_count %> </h2>
-<h2><%= link_to "Completed Orders:", admin_filter_path(type: "completed") %> <%= @completed_orders_count %> </h2>
+<h2><div><%= link_to "Ordered Orders:", admin_filter_path(type: "ordered") %> <%= Order.type_count("Ordered") %></div> </h2>
+<h2><%= link_to "Paid Orders:", admin_filter_path(type: "paid") %> <%= Order.type_count("Paid") %> </h2>
+<h2><%= link_to "Completed Orders:", admin_filter_path(type: "completed") %> <%= Order.type_count("Completed") %> </h2>
+<h2><%= link_to "Cancelled Orders:", admin_filter_path(type: "cancelled") %> <%= Order.type_count("Cancelled") %> </h2>
 </br>
 
 <div class="powers">
