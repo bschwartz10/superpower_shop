@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
       flash[:notice] = "Your order was successfully placed. You ordered #{pluralize(order.quantity, "power")}."
       redirect_to order_path(order)
     else
+      redirect_to orders_path
     end
   end
 
