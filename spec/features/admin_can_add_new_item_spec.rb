@@ -17,12 +17,10 @@ RSpec.feature "Admin can add new power to powers list" do
     fill_in "power[description]", with: "Knee buckling stench emits from stomach"
     fill_in "power[price]", with: 2
     select "cosmic", :from => "power[category_id]"
-    # fill_in "power[image]", with:
     click_on "Create Power"
 
     expect(page).to have_content("Horrendous Burp")
     expect(page).to have_content("Knee buckling stench emits from stomach")
     expect(page).to have_content(2)
-    # expect image via Paperclip
   end
 end
