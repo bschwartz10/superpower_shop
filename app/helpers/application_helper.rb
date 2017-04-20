@@ -14,15 +14,7 @@ module ApplicationHelper
       end
    end
 
-   def show_correct_image
-     if @power.image_url != nil
-        @power.image_url
-     else
-        @power.image.url
-     end
-   end
-
-   def index_correct_image(power)
+   def show_correct_image(power)
      if power.image_url != nil
         power.image_url
      else

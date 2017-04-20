@@ -5,7 +5,7 @@
     <% order.powers.each do |power| %>
       <div class="power", id= <%= "power_#{power.id}" %>>
         <div class="power_image">
-          <img src="<%= power.image_url %>" width="50" height="50"/>
+          <img src="<%= show_correct_image(power) %>" width="150" height="150"/>
         </div>
         <h1><%= link_to "#{power.title}", power_path(power) %></h1>
       </div>
