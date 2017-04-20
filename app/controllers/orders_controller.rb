@@ -34,21 +34,13 @@ class OrdersController < ApplicationController
     type = params[:type]
     if current_admin?
       @order = Order.find(params[:id])
-      if type == "cancel"
-        @order.update(status: "Cancelled")
-      elsif type == "pay"
-        @order.update(status: "Paid")
-      elsif type == "complete"
-        @order.update(status: "Completed")
-      end
+      @order.update_status(type)
+      redirect_back(fallback_location: admin_dashboard_path)
     elsif current_user
       @order = current_user.orders.find(params[:id])
-      if type == "cancel"
-        @order.update(status: "Cancelled")
-      end
+      @order.update_status_restricted
+      redirect_to powers_path
     end
-
-    redirect_to powers_path
   end
 
 end
