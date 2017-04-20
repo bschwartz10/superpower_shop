@@ -3,14 +3,10 @@
   <% @category.powers.each do |power| %>
   <div class="power", id= <%= "power_#{power.id}" %>>
     <div class="power_image">
-      <img src="<%= index_correct_image(power) %>" width="150" height="150"/>
-    <h1><%= link_to "#{power.title}", power_path(power) %></h1>
-    <% if power.status == "active" %>
-      <%= button_to "Add to Briefcase", briefcases_path(power_id: power.id), class: "btn btn-info" %>
-    <% else %>
-      <h3>Item Retired</h3>
-    <% end %>
+      <img src="<%= show_correct_image(power) %>" width="150" height="150"/>
+      <h1><%= link_to "#{power.title}", power_path(power) %></h1>
+      <%= power_active(power) %>
+    </div>
   </div>
-  </div>
-<% end %>
+  <% end %>
 </div>

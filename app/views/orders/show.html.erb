@@ -5,28 +5,31 @@
       <div class="power">
       <h1> <%= link_to "#{power.title} Power", power_path(power) %> </h1>
       <div class="power_image">
-        <img src="<%= index_correct_image(power) %>" width="100" height="100"/>
+        <img src="<%= show_correct_image(power) %>" width="100" height="100"/>
       </div>
       <h5> <%= power.description %> </h5>
       <p> Price: $<%= power.price %> </p>
-      <p> Quantity: <%= power.order_powers.find_by(order_id: @order.id).power_quantity %> </p>
-      <p> Subtotal: $<%= power.order_powers.find_by(order_id: @order.id).power_total %> </p>
-    </div>
+      <p> Quantity: <%= power.power_quantity(@order) %> </p>
+      <p> Subtotal: $<%= power.power_total(@order) %> </p>
+      </div>
     <% end %>
 </div>
+
+<div class="orders">
+  <div class="order">
     <h4>Order Total: $<%= @order.total %></h4>
     <h4>Order Status: <%= @order.status %></h4>
-    <h4>Order Placed: <%= @order.created_at.strftime("%A, %d %b %Y %l:%M %p") %></h4>
+    <h4>Order Placed: <%= @order.created_time %></h4>
     <% if current_admin? %>
-    <h4>Ordered By: <%= @order.user.first_name%> <%= @order.user.last_name %></h4>
-    <h4>Shipping Address: <%= @order.user.address%></h4>
+      <h4>Ordered By: <%= @order.user.first_name%> <%= @order.user.last_name %></h4>
+      <h4>Shipping Address: <%= @order.user.address%></h4></br>
     <% end %>
-    <% unless @order.status == "Completed" || @order.status == "Cancelled" %>
-      <% unless @order.status == "Paid" %>
-        <%= link_to 'Pay To Complete Order', pay_path, class: "btn btn-primary" %>
-      <% end %>
-      <%= button_to 'Cancel Order', order_path(@order, type: "cancel"), class: "btn btn-danger", method: :put %>
-    <% end %>
+    
+    <%= show_pay(@order) %>
+    <%= show_cancel(@order) %>
+  
   <% else %>
-    Your Order was cancelled on <%= @order.updated_at.strftime("%A, %d %b %Y %l:%M %p") %>
+    Your Order was cancelled on <%= @order.updated_time %>
   <% end %>
+  </div>
+</div>
