@@ -8,8 +8,8 @@
 
 <div class="powers">
   <% @orders.each do |order| %>
-  <div class="order">
-    <%= link_to "Order ##{order.id}", order_path(order)%></br>
-  </div>
+    <div class="order">
+      <%= link_to "Order ##{order.id}", order_path(order)%></br>
+    </div>
   <% end %>
 </div>

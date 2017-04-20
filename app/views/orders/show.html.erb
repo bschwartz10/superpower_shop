@@ -1,9 +1,10 @@
 <h1><%= "Abilities Order ##{@order.id}" %></h1>
+
 <div class="powers">
   <% unless @order.status == "Cancelled" %>
     <% @powers.each do |power| %>
       <div class="power">
-      <h1> <%= link_to "#{power.title} Power", power_path(power) %> </h1>
+        <h1> <%= link_to "#{power.title} Power", power_path(power) %> </h1>
       <div class="power_image">
         <img src="<%= show_correct_image(power) %>" width="100" height="100"/>
       </div>
@@ -24,12 +25,10 @@
       <h4>Ordered By: <%= @order.user.first_name%> <%= @order.user.last_name %></h4>
       <h4>Shipping Address: <%= @order.user.address%></h4></br>
     <% end %>
-    
     <%= show_pay(@order) %>
     <%= show_cancel(@order) %>
-  
-  <% else %>
-    Your Order was cancelled on <%= @order.updated_time %>
-  <% end %>
+    <% else %>
+      Your Order was cancelled on <%= @order.updated_time %>
+    <% end %>
   </div>
 </div>
