@@ -1,13 +1,14 @@
-<h1> <%= @category.title %> powers! </h1>
-
-<div class="powers">
-  <% @category.powers.each do |power| %>
-  <div class="power", id= <%= "power_#{power.id}" %>>
-    <div class="power_image">
-      <img src="<%= show_correct_image(power) %>" width="150" height="150"/>
-      <h1><%= link_to "#{power.title}", power_path(power) %></h1>
-      <%= power_active(power) %>
+<body class=<%= "#{@category.title.split.join("-")} container" %>>
+  <h1> <%= @category.title %> powers! </h1>
+  <div class="powers">
+    <% @category.powers.each do |power| %>
+    <div class="power", id= <%= "power_#{power.id}" %>>
+      <div class="power_image">
+        <img src="<%= show_correct_image(power) %>" width="150" height="150"/>
+        <h1><%= link_to "#{power.title}", power_path(power) %></h1>
+        <%= power_active(power) %>
+      </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
+</body>

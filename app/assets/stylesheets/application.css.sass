@@ -31,11 +31,11 @@
     padding: 9px 9px
 
 body
-  background: radial-gradient(circle at top left, white, #6CF5CC, #017BC4, #6CF5CC, white) // #F9BD20, #CA0000, #960202 
-  -webkit-background-size: cover
-  -moz-background-size: cover
-  -o-background-size: cover
-  background-size: cover
+  background: radial-gradient(circle at top left, white, #6CF5CC, #017BC4, #6CF5CC, white)
+  height: 100%
+  margin: 0
+  background-repeat: no-repeat
+  background-attachment: fixed
   padding: 70px
   color: #2D2D2A
   font-family: monospace
@@ -44,6 +44,7 @@ h1
   font-size: 6vw
   text-align: center
   font-weight: bold
+  color: #1A1F16
   
 h2
   font-size: 3vw
@@ -110,6 +111,36 @@ body.welcome
     color: #3D69B7
     background-color: #6CF5CC
     padding: 4px
+
+body.street-level
+  background: radial-gradient(circle at top left, #2D2D2A, #6d6d65, #3D69B7, #6d6d65, #2D2D2A) 
+  height: 100%
+  margin: 0
+  background-repeat: no-repeat
+  background-attachment: fixed
+  padding: 70px
+  color: #2D2D2A
+  font-family: monospace
+  
+body.planetary
+  background: radial-gradient(circle at top left, #2A9134, #2A9134, #3D69B7, #2A9134, #2A9134)
+  height: 100%
+  margin: 0
+  background-repeat: no-repeat
+  background-attachment: fixed
+  padding: 70px
+  color: #2D2D2A
+  font-family: monospace
+  
+body.cosmic
+  background: radial-gradient(circle at top left, #A52282, #730499, #134399, #3D69B7, #134399, #730499, #A52282)
+  height: 100%
+  margin: 0
+  background-repeat: no-repeat
+  background-attachment: fixed
+  padding: 70px
+  color: #2D2D2A
+  font-family: monospace
 
 .powers_show
   display: flex
