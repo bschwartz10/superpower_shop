@@ -20,5 +20,4 @@ class Admin::OrdersController < Admin::BaseController
       render :completed
     end
   end
-
 end
