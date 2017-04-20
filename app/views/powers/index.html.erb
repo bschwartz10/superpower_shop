@@ -5,11 +5,7 @@
       <div class="power_image">
         <img src="<%= show_correct_image(power) %>" width="150" height="150"/></div>
       <h1><%= link_to "#{power.title}", power_path(power) %></h1>
-      <% if power.status == "active" %>
-        <%= button_to "Add to Briefcase", briefcases_path(power_id: power.id), class: "btn btn-info" %>
-      <% else %>
-        <h3>Item Retired</h3>
-      <% end %>
+      <%= power_active(power) %>
     </div>
   <% end %>
 </div>
