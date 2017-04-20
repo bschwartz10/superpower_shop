@@ -44,7 +44,6 @@ RSpec.feature "User see past order" do
 
     click_on "Checkout Abilities"
 
-    # I should see each item that was order with the quantity and line-item subtotals
     expect(page).to have_link("flying Power")
     expect(page).to have_content("Ordered")
     expect(page).to have_content(Order.last.created_at.strftime("%A, %d %b %Y %l:%M %p"))
