@@ -67,8 +67,7 @@ describe "When an admin visits the admin dashboard" do
     order1 = Order.create!(status: "Ordered", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-    visit admin_dashboard_path
-    click_on "Ordered Orders"
+    visit '/admin/filter?type=ordered'
 
     expect(page).to have_content(order1.id)
   end
@@ -77,8 +76,7 @@ describe "When an admin visits the admin dashboard" do
     order1 = Order.create!(status: "Paid", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-    visit admin_dashboard_path
-    click_on "Paid Orders"
+    visit '/admin/filter?type=paid'
 
     expect(page).to have_content(order1.id)
   end
@@ -86,8 +84,7 @@ describe "When an admin visits the admin dashboard" do
     order1 = Order.create!(status: "Cancelled", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-    visit admin_dashboard_path
-    click_on "Cancelled Orders"
+    visit '/admin/filter?type=cancelled'
 
     expect(page).to have_content(order1.id)
   end
@@ -96,8 +93,7 @@ describe "When an admin visits the admin dashboard" do
     order1 = Order.create!(status: "Completed", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-    visit admin_dashboard_path
-    click_on "Completed Orders"
+    visit '/admin/filter?type=completed'
 
     expect(page).to have_content(order1.id)
   end
@@ -106,9 +102,8 @@ describe "When an admin visits the admin dashboard" do
     order1 = Order.create!(status: "Ordered", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-    visit admin_dashboard_path
-
-    click_on "Ordered Orders"
+    visit '/admin/filter?type=ordered'
+    
     expect(page).to have_link "Order ##{order1.id}"
 
     click_on "Cancel Order"
@@ -121,9 +116,8 @@ describe "When an admin visits the admin dashboard" do
     order1 = Order.create!(status: "Paid", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-    visit admin_dashboard_path
+    visit '/admin/filter?type=paid'
 
-    click_on "Paid Orders"
     expect(page).to have_link "Order ##{order1.id}"
     click_on "Cancel Order"
     visit '/admin/filter?type=cancelled'
@@ -135,9 +129,7 @@ describe "When an admin visits the admin dashboard" do
     order1 = Order.create!(status: "Ordered", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-    visit admin_dashboard_path
-
-    click_on "Ordered Orders"
+    visit '/admin/filter?type=ordered'
     click_on "Mark Paid"
     visit '/admin/filter?type=paid'
     expect(page).to have_link "Order ##{order1.id}"
@@ -147,9 +139,7 @@ describe "When an admin visits the admin dashboard" do
     order1 = Order.create!(status: "Paid", user_id: @admin.id )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-    visit admin_dashboard_path
-
-    click_on "Paid Orders"
+    visit '/admin/filter?type=paid'
     click_on "Mark Completed"
     visit '/admin/filter?type=completed'
     expect(page).to have_link "Order ##{order1.id}"
