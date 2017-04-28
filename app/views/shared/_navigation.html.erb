@@ -24,7 +24,6 @@
           </ul>
         </li>
       <% end %>
-
       <% if current_user && !current_admin? %>
         <li> <%= link_to "Orders", orders_path %></li>
       <% end %>
@@ -40,7 +39,6 @@
       <% else %>
         <li class="navbar-right login"> <%= link_to "Put on Your Mask", login_path, class: "btn btn-primary" %></li>
       <% end %>
-
     </ul>
   </div>
 </nav>

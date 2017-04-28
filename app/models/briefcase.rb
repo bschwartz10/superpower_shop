@@ -8,7 +8,7 @@ class Briefcase
   def powers
     contents.map do |power_id, quantity|
        BriefcasePower.new(power_id, quantity)
-     end
+    end
   end
 
   def total_cost
@@ -31,7 +31,7 @@ class Briefcase
   def count_of(power_id)
     contents[power_id.to_s]
   end
-  
+
   def increase_or_decrease(type, power_id)
     if type == "increase"
       contents[power_id.to_s] += 1

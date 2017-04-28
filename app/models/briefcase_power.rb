@@ -10,5 +10,4 @@ class BriefcasePower < SimpleDelegator
   def total_cost
     price * quantity
   end
-
 end
