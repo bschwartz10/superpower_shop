@@ -36,13 +36,13 @@ To set up a local copy of this project, perform the following:
 ### Features
 Our e-commerce platform sells hypothetical superpowers.
 
-##### Visitors
+#### Visitors
 Visitors of the site can [browse superpowers](https://superpower-shop.herokuapp.com/powers) and add them to their [briefcase](https://superpower-shop.herokuapp.com/briefcase).
 
-##### Users
+#### Users
 A visitor can become an authenticated user by [creating an account](https://superpower-shop.herokuapp.com/users/new). A user can then [login](https://superpower-shop.herokuapp.com/login) and complete the purchasing process by "buying" the superpowers in their briefcase.
 
-##### Admins
+#### Admins
 Admins can view each users orders and mark them as "paid" and "completed". They can also see all of the orders in the system and their status(i.e ordered, paid, completed, cancelled).
 
 ### Design
