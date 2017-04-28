@@ -3,6 +3,7 @@ require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
+User.create(User.create(first_name: 'brett', last_name: 'schwartz', address: '444 turing lane', email: "admin@example.com", password: "password", role: 1))
 street_level = Category.create(title: 'street level')
 planetary = Category.create(title: 'planetary')
 cosmic = Category.create(title: 'cosmic')
