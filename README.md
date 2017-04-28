@@ -1,5 +1,7 @@
 # Little Shop of Orders
 
+![Alt text](./app/assets/images/entrance.png?raw=true "Entrance"
+
 The goal of this project was to use Rails to build an online commerce platform to facilitate online ordering.
 
 This project was completed as part of the curriculum at the [Turing School of Software & Design](http://turing.io).
@@ -15,7 +17,7 @@ This project was completed as part of the curriculum at the [Turing School of So
 
 ### Live Version
 
-You can find a live version of this application on Heroku at: https://dashboard.heroku.com/apps/superpower-shop
+You can find a live version of this application on Heroku at: https://superpower-shop.herokuapp.com/login
 
 ### Setup
 
