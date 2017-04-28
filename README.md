@@ -2,18 +2,11 @@
 
 ![Alt text](./app/assets/images/entrance.png?raw=true "Entrance")
 
-The goal of this project was to use Rails to build an online commerce platform to facilitate online ordering.
+## Overview
 
-This project was completed as part of the curriculum at the [Turing School of Software & Design](http://turing.io).
+* The goal of this project was to use Rails to build an online commerce platform to facilitate online ordering.
 
-### Learning Goals
-
-* Use TDD to drive all layers of Rails development including unit and integration tests
-* Design a system of models which use one-to-one, one-to-many, and many-to-many relationships
-* Practice mixing HTML, CSS, and templates to create an inviting and usable User Interface
-* Differentiate responsibilities between components of the Rails stack
-* Build a logical user-flow that moves across multiple controllers and models
-* Practice an agile workflow and improve communication skills working within a team
+* This project was completed as part of the curriculum at the [Turing School of Software & Design](http://turing.io).
 
 ### Live Version
 
@@ -31,17 +24,26 @@ To set up a local copy of this project, perform the following:
   5. Run the application in the dev environment by running `rails s`
   6. Visit `http://localhost:3000/`
 
+### Learning Goals
+
+  * Use TDD to drive all layers of Rails development including unit and integration tests
+  * Design a system of models which use one-to-one, one-to-many, and many-to-many relationships
+  * Practice mixing HTML, CSS, and templates to create an inviting and usable User Interface
+  * Differentiate responsibilities between components of the Rails stack
+  * Build a logical user-flow that moves across multiple controllers and models
+  * Practice an agile workflow and improve communication skills working within a team
+
 ### Features
 Our e-commerce platform sells hypothetical superpowers.
 
 ##### Visitors
-* Visitors of the site can [browse superpowers](https://superpower-shop.herokuapp.com/powers) and add them to their [briefcase](https://superpower-shop.herokuapp.com/briefcase).
+Visitors of the site can [browse superpowers](https://superpower-shop.herokuapp.com/powers) and add them to their [briefcase](https://superpower-shop.herokuapp.com/briefcase).
 
 ##### Users
-* A visitor can become an authenticated user by [creating an account](https://superpower-shop.herokuapp.com/users/new). A user can then [login](https://superpower-shop.herokuapp.com/login) and complete the purchasing process by "buying" the superpowers in their briefcase.
+A visitor can become an authenticated user by [creating an account](https://superpower-shop.herokuapp.com/users/new). A user can then [login](https://superpower-shop.herokuapp.com/login) and complete the purchasing process by "buying" the superpowers in their briefcase.
 
 ##### Admins
-* Admins can view each users orders and mark them as "paid" and "completed". They can also see all of the orders in the system and their status(i.e ordered, paid, completed, cancelled).
+Admins can view each users orders and mark them as "paid" and "completed". They can also see all of the orders in the system and their status(i.e ordered, paid, completed, cancelled).
 
 ### Design
 We used [Bootstrap](http://getbootstrap.com/) to style our website.
