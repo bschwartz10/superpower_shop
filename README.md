@@ -25,7 +25,7 @@ Our e-commerce platform sells hypothetical superpowers.
 
 [Little Shop of Orders Project Spec](http://backend.turing.io/module2/projects/little_shop)
 
-Contributors:
+### Contributors:
 * [Brett Schwartz](https://github.com/bschwartz10/little_shop_of_orders)
 * [Victoria Vasys](https://github.com/VictoriaVasys)
 * [Ken Lee](https://github.com/wewert)
