@@ -1,6 +1,6 @@
 # Little Shop of Orders
 
-![Alt text](./app/assets/images/entrance.png?raw=true "Entrance"
+![Alt text](./app/assets/images/entrance.png?raw=true "Entrance")
 
 The goal of this project was to use Rails to build an online commerce platform to facilitate online ordering.
 
