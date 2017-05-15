@@ -10,7 +10,7 @@
 
 ### Live Version
 
-You can find a live version of this application on Heroku at: https://superpower-shop.herokuapp.com/login
+You can find a live version of this application on Heroku at: https://superpower-shop.herokuapp.com
 
 ### Setup
 
