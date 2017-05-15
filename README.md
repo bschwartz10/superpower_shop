@@ -1,4 +1,4 @@
-# Little Shop of Orders
+# Superpower Shop
 
 ![Alt text](./app/assets/images/entrance.png?raw=true "Entrance")
 
@@ -16,7 +16,7 @@ You can find a live version of this application on Heroku at: https://superpower
 
 To set up a local copy of this project, perform the following:
 
-  1. Clone the repository: `git clone https://github.com/bschwartz10/little_shop_of_orders`
+  1. Clone the repository: `git clone https://github.com/bschwartz10/superpower_shop`
   2. `cd` into the project's directory
   3. Run `bundle install`
   4. Run `bundle exec rake db:{create,migrate,seed}` to set up the postgres database and seed it with categories and powers.
@@ -57,11 +57,11 @@ The test suite tests the application on multiple levels. To run all of the tests
 This application depends on many ruby gems, all of which are found in the `Gemfile` and can be installed by running `bundle install` from the terminal in the main directory of the project.
 
 ### Project Links
-[Little Shop of Orders Github URL](https://github.com/bschwartz10/little_shop_of_orders)
+[Little Shop of Orders Github URL](https://github.com/bschwartz10/superpower_shop)
 
 [Little Shop of Orders Project Spec](http://backend.turing.io/module2/projects/little_shop)
 
 ### Contributors:
-* [Brett Schwartz](https://github.com/bschwartz10/little_shop_of_orders)
+* [Brett Schwartz](https://github.com/bschwartz10)
 * [Victoria Vasys](https://github.com/VictoriaVasys)
 * [Ken Lee](https://github.com/wewert)
