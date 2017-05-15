@@ -57,7 +57,7 @@ The test suite tests the application on multiple levels. To run all of the tests
 This application depends on many ruby gems, all of which are found in the `Gemfile` and can be installed by running `bundle install` from the terminal in the main directory of the project.
 
 ### Project Links
-[Little Shop of Orders Github URL](https://github.com/bschwartz10/superpower_shop)
+[Superpower Shop Github URL](https://github.com/bschwartz10/superpower_shop)
 
 [Little Shop of Orders Project Spec](http://backend.turing.io/module2/projects/little_shop)
 
