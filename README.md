@@ -59,7 +59,7 @@ This application depends on many ruby gems, all of which are found in the `Gemfi
 ### Project Links
 [Superpower Shop Github URL](https://github.com/bschwartz10/superpower_shop)
 
-[Little Shop of Orders Project Spec](http://backend.turing.io/module2/projects/little_shop)
+[Superpower Shop Project Spec](http://backend.turing.io/module2/projects/little_shop)
 
 ### Contributors:
 * [Brett Schwartz](https://github.com/bschwartz10)
